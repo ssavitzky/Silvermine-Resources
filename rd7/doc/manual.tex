@@ -1,0 +1,693 @@
+\documentstyle[bezier,12pt]{book}
+\pagestyle{headings}
+
+\setlength{\unitlength}{1.2pt}
+\thicklines
+\input{rd7}
+
+\title{\logo \\ User's Guide} 
+\author{Copyright \copyright\ 1988 by Silvermine Resources, Inc.\\
+	All rights reserved.}
+
+%
+% Page Parameters (multiplied by 1.2 for 12pt---works better than magstep1)
+%
+\oddsidemargin 0in \evensidemargin 0in \topmargin 0in
+\columnsep 10pt \columnseprule 0pt 
+\marginparwidth 90pt \marginparsep 11pt \marginparpush 5pt 
+\ignore{ 
+ \headheight 12pt \headsep 36pt 
+ \footheight 12pt \footskip 25pt 
+ \textheight 6.5in \textwidth 4in
+}
+\headheight 14.4pt \headsep 43.2pt 
+\footheight 14.4pt \footskip 28.8pt 
+\textheight 7.8in \textwidth 4.8in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{document}
+
+\titlepage
+{
+\setlength{\unitlength}{2.4pt}
+\thicklines
+\vspace{1in}
+\begin{center}
+
+\newsavebox{\lsslant}
+\savebox{\lsslant}(2.5,5){\bezier{20}(0,0)(1,2)(2.5,5)}
+\newsavebox{\llslant}
+\savebox{\llslant}(5,10){\bezier{40}(0,0)(1,2)(5,10)}
+\newcommand{\lslogo}{{
+ \begin{picture}(20,10)
+%				% r
+ \put(0,0){\usebox\lsslant}
+ \put(2.5,5){\line(1,0){3}}
+%				% d
+ \put(6,0){\line(1,0){5}}
+ \put(6,0){\usebox\lsslant}
+ \put(8.5,5){\line(1,0){5}}
+ \put(11,0){\usebox\lslant}
+%				% 7
+ \put(18.5,10){\line(1,0){5}}
+ \put(18.5,0){\usebox\llslant}
+ \end{picture}
+}}
+
+\begin{picture}(140,85)
+\put(1,1){\framebox(138,83){}}
+\put(3,67){\framebox(134,15)[l]{\lslogo}}
+\put(3,67){\makebox(134,15)[r]{\huge ab/sp\ }}
+\put(3,3){\framebox(134,62)[t]{\makebox(134,50){\logo}}}
+\put(3,3){\makebox(134,62)[b]{\makebox(134,16){\Huge User's Guide}}}
+\end{picture}
+
+\copyright\ 1988 by Silvermine Resources, Inc.\quad\quad
+All rights reserved.
+
+\end{center}
+}
+
+
+\tableofcontents
+\markboth{}{Contents}
+
+% === need blank page at end of TOC ===
+
+\chapter{Introduction}
+ 
+\RD\ is a program that runs on the IBM PC, XT, AT, and compatible
+computers, for reading diskettes written on the Perkin-Elmer 7000 series
+Professional Data Stations under the Idris operating system,
+and transferring them to PC/MS-DOS diskettes or hard disks. 
+
+
+\section{Features}
+ 
+\begin{itemize}
+\item
+A display-oriented presentation of the directory structure of both
+source (Idris) and destination (DOS) file systems.  The display
+includes multiple views including side-by-side display of a disk's
+directory structure (in tree form) and the contents of a selected
+directory in the tree.
+ 
+\item
+The ability to view the contents of files in either ASCII or
+Hexadecimal on either the source or destination file system.
+ 
+\item
+Menus with extensive context-sensitive help.
+ 
+\item
+The ability to transfer an entire directory tree, preserving its
+structure, with only two keystrokes.
+ 
+\end{itemize}
+
+\newpage
+\section{Versions}
+ 
+\RD\ comes in two versions:
+ 
+\begin{enumerate}
+ 
+\item \RD-AB for ASCII and Binary files.
+ 
+\item \RD-SP, which in addition to ASCII and binary data
+can read spectral data in Perkin-Elmer's
+\code{.sp} format, view spectra in graphical form, and copy spectra
+either directly, translated to JCAMP-DX form, or translated to
+Perkin-Elmer's new Data Manager format for PC-based computers.
+ 
+\end{enumerate}
+ 
+\noindent This manual describes both versions.
+ 
+ 
+\chapter{Installation}
+ 
+\section{Disk Contents}
+The \RD\ disk contains the following files:
+ 
+\begin{description}
+\item[\code{RD7.EXE}] \nl
+The executable file that implements the \code{rd7} command.  
+ 
+\item[\code{AUTOEXEC.BAT}] \nl
+A sample file that can be appended to your own
+\code{AUTOEXEC.BAT} file to change default parameters for \RD.
+ 
+\item[\code{JCAMP.HDR}] \nl
+{\em [\RD-SP only]} A sample Jcamp header file.
+
+\item[\code{MSHERC.COM}] \nl
+{\em [\RD-SP only]} A device driver that lets you use \RD-SP with a
+Hercules (or compatible) monochrome graphics card.
+ 
+\item[\code{README}] \nl
+A text file containing last-minute notes.
+ 
+\end{description}
+ 
+\newpage 
+\section{Installing Files}
+
+\begin{enumerate} 
+
+\item
+Start by making a {\em copy} of your \RD\ disk.
+On a system with two floppy drives, give the command
+\begin{dcode}
+diskcopy a: b:
+\end{dcode}
+\noindent
+and then put the \RD\ disk in drive \code{A:}, and a blank disk in
+drive \code{B:}.
+ 
+On a system with only one floppy drive, give the command
+\begin{dcode}
+diskcopy
+\end{dcode}
+\noindent
+and then put the \RD\ disk in the floppy drive.  Exchange it with a
+blank disk when the program prompts you to do so.
+
+\item 
+Put the original disk in a safe place.
+
+\item 
+If you have a hard disk, make a directory on your working disk
+(usually \code{C:}) called \code{RD7}, and copy all of the files on
+the \RD\ disk to it.  You can do this with the commands:
+\begin{dcode}
+mkdir rd7\\
+cd rd7\\
+copy a:*.*
+\end{dcode}
+\noindent (assuming that the \RD\ disk is in drive \code{A:}).
+ 
+(Strictly speaking, you don't have to do this.  You can put \RD\
+in any directory that is listed in the \code{PATH} command in your
+\code{AUTOEXEC.BAT} file.  We find it convenient, however, to keep
+\RD\ and all of our 7000 files in one place; the examples below
+will assume this configuration.)
+ 
+If you will be using floppy disks, you will probably find it best to
+make another copy of the \RD\ disk and switch to it after booting
+from your usual system disk.  It is also possible to put
+\code{RD7.EXE} on your system disk and switch to a blank (but
+formatted) DOS disk after starting \RD.  This leaves your entire
+DOS disk free for transferring files.
+
+If you are using \RD-SP on a machine with a Hercules or compatible
+graphics card, you will need to run \code{MSHERC} before running \RD.
+\code{MSHERC} is a ``Terminate-and-Stay-Resident'' device driver that
+allows \RD-SP's graphics displays to operate on the Hercules card.
+The simplest way to ensure that \code{MSHERC} is run is to put a line
+containing just ``\code{MSHERC}'' into your \code{AUTOEXEC.BAT} file,
+which is executed whenever you boot your machine.  The sample
+\code{AUTOEXEC.BAT} file on your \RD-SP distribution disk contains this
+line.
+
+\end{enumerate}
+
+\section{Getting Started}
+
+Finally, give the command:
+\begin{dcode}
+rd7
+\end{dcode}
+\noindent
+to start the \RD\ program.  The screen will look like \Fref{fig-startup}.
+ 
+\begin{figure}[tbp]
+
+\vspace{1.25in}
+((( TO BE SUPPLIED )))
+\vspace{1.25in}
+ 
+\caption{Startup Screen}
+\label{fig-startup}
+\end{figure}
+
+
+ 
+A menu is shown on the second line of the screen.  You can issue a
+command from the menu either by typing the first character of the
+command, or by moving the highlight to the command (\key{space} moves
+forward and \key{backspace} moves backward) and hitting the \key{enter}
+key.  The `?' key will {\em always} show you a screen with a
+short summary of the current menu and its commands; the `/' key
+always brings you back to the initial menu.  The \cmd{A}{About}
+command in the initial menu gives you an overview of \RD\ and its
+commands.
+ 
+Try moving the highlighted menu item with the \key{space} and
+\key{backspace} keys.  Notice that the line under the menu contains a
+brief description of the highlighted item.  (The first word in the
+menu is not a command but a label for the menu, and its help line
+gives a general description of what commands in that menu are for.)
+
+The line below the description line contains labels for the views
+that occupy the lower portion of the screen.  On the left end of the
+label line is the name of the view that will be reached by striking
+the left arrow key (``Dos'') in the initial view, and on the right is
+the name of the view that will be reached with the right arrow key.%
+\footnote{In case you were wondering why double-angle symbols are
+shown on the screen instead of arrows, it's because you might want to
+use the ``Print Screen'' key, and the arrows correspond to control
+characters that most printers can't handle.}  When there are two
+views on the screen at the same time, the arrow labels will appear
+over the ``active'' view, i.e. the one the menu refers to.
+
+Next, try giving the commands \cmd{D}{DOS} (or left arrow) 
+and \cmd{R}{Read Disk}.
+(Commands are single keystrokes; no \key{enter} key is needed, and
+either upper- or lower-case letters will work.)  You will end up with
+a display that looks like \Fref{fig-after-read}.
+ 
+\begin{figure}[tbp]
+
+\vspace{1.25in}
+((( TO BE SUPPLIED )))
+\vspace{1.25in}
+ 
+\caption{After the commands `D' and `R' the display will look
+like this.}
+\label{fig-after-read}
+\end{figure}
+ 
+Use the right arrow key to move the highlight into the File view. 
+Highlight the file called \code{README} by moving down with the 
+down arrow key.  Use the right arrow key again to view the contents
+of the file.  Use the left arrow key twice to get back
+into the Directory View.
+ 
+Now put a 7000 Idris disk in drive \code{A:} and give the commands
+left-arrow (or \cmd{/I}{Idris}) and \cmd{R}{Read}.  (If you are working from
+floppies and have the \RD\ disk in drive \code{A:}, put the Idris
+disk in drive \code{B:} and give the commands \cmd{I}{Input}, \cmd{D}{Drive},
+and `1'.  Notice that when you are in the Idris views,
+the drives are designated by numbers the way they are on the 7000,
+rather than letters as they are in DOS.)  In any case, you will
+get a display something like \Fref{fig-idris}.
+ 
+\begin{figure}[tbp]
+ 
+\vspace{1.25in}
+((( TO BE SUPPLIED )))
+\vspace{1.25in}
+ 
+\caption{After the commands `/', `I' and `R' the display will look
+something like this.}
+\label{fig-idris}
+\end{figure}
+ 
+To transfer the entire contents of the Idris disk to the DOS disk,
+simply give the commands \cmd{T}{Tag} and \cmd{W}{Write}.
+If you want to be more selective, you can select
+individual directories in the Directory view, or files in the File
+view, and tag them with the `T' command.  The `W' command in the
+File view simply writes the highlighted file without tagging it; in
+the Directory view it writes all tagged files in the highlighted
+directory.
+ 
+Note that by default, all files except spectra (with a \code{.sp}
+extension) are assumed to be ASCII, and any newline characters they
+contain are converted to carriage-return/linefeed pairs.  You can
+designate files as Binary (and tag them for transfer at the same time)
+with the \cmd{B}{Binary} command.
+Giving these commands
+%The \cmd{C}{Conversion} command
+in the Directory View lets you tag all the files under a directory and
+also designate a conversion type for them.
+ 
+
+\chapter{Using rd7}
+ 
+\section{Using the Menus}
+ 
+Menus are shown on the second line of the screen.  You can issue a
+command from the menu either by typing the first character of the
+command, or by moving the highlight to the command (\key{space} moves
+forward and \key{backspace} moves backward) and hitting the \key{enter}
+key.  When using the first character of the command, only a single
+keystroke is needed (no \key{enter} key), and either upper- or
+lower-case can be used for letters.
+ 
+To find out more about a menu command, use \key{space} and
+\key{backspace} to move the highlight to that
+command.  The line underneath the menu gives a brief description of
+the command.  To find out more, type the `?' key, which will always
+show you a screen with a short summary of the current menu and its
+commands; the `/' key always brings you back to the initial menu. 
+The \cmd{A}{About} command in the initial menu gives a more
+extensive overview of \RD\ and its commands.
+ 
+ 
+\section{Using the Cursor Keys}
+ 
+The cursor keys are used for moving within a view, and between views. 
+For moving within a view, the up and down arrows move a line at a
+time, and the \key{PgUp} and \key{PgDn} keys move a screen-full at a
+time.  The \key{Home} key moves to the first item in the view (i.e.
+the root directory, first file in a directory, or first line in a
+file).  The \key{End} key moves to the last item in the view.
+ 
+The left and right arrow keys are used to move {\em between} views.
+If there are two views on the screen, (e.g. the Directory and File
+views), left and right arrows will move between them in the obvious
+fashion.  Moving left from the Directory view goes to the {\em other}
+Directory view (i.e. Idris from DOS, and DOS from Idris). 
+The names of the views reached with the left and right arrows are
+listed at the left and right edges of the screen (or active view, if
+two views are on the screen), on the top line of the view frame.
+
+Moving to the right always gets you more detail, and moving left less
+(or something completely different, as in switching between Directory
+Views).  Thus, moving right from the Directory view gets you to the
+File view and moving right from the File view shows you the {\em
+contents} of the highlighted file.  If you are looking at a help
+screen (the result of the `?' command), moving right gets you help
+about the help menu, and moving left gets you back to your previous
+view.
+ 
+ 
+\section{Transferring Files}
+ 
+
+Transferring files is a three-step process:
+
+\begin{enumerate}
+\item 
+Select a destination directory for the files, using the \cmd{O}{Output}
+command in the DOS Directory View.
+
+\item 
+Tag some files to transfer (and possibly specify a conversion type for
+them as well).  The \cmd{T}{Tag} command tags the highlighted
+file in the File View, and {\em everything} under the highlighted
+directory in the Directory View.  The \cmd{A}{ASCII} and \cmd{B}{Binary}
+commands in the File View both tag and specify a
+conversion type, as do \RD-SP's \cmd{S}{Spectrum}
+and \cmd{J}{Jcamp} commands.  
+
+You can assign a conversion type to everything under a directory using
+the conversion type commands in the Directory View.
+
+\item
+Write the files with the \cmd{W}{Write} command in the
+Directory View.
+
+\end{enumerate}
+
+\noindent
+When transferring a single file the second step can be omitted by
+issuing the \cmd{W}{Write} command in the File View with the
+file you want to transfer highlighted.
+
+For Jcamp conversion, you must also select a Jcamp header file using
+the \cmd{J}{Jcamp} command in the DOS File View.
+
+When a file is written its name may have to be changed; this is done
+automatically.  A file's name may be changed in the following ways:
+\begin{itemize}
+\item
+DOS filenames can contain only uppercase letters and a restricted set
+of special characters.  Lowercase letters in the Idris filename are
+uppercased, and special characters not permitted in DOS are replaced
+by `\code{~}' characters.
+\item
+DOS filenames consist of an eight-character name, a period, and a
+three-character extension.  The name and extension of the Idris file
+are truncated if necessary.
+\item
+If the file to be written already exists, a number is appended to its
+name (or replaces the last characters of the name, if the name is
+long enough).  The number is incremented until a name conflict no
+longer occurs.
+\item
+In \RD-SP, Spectrum files (\code{.sp} extension) written in Binary
+mode have their extension changed to \code{.SPI}; spectra written in
+JCAMP-DX mode have their extension changed to \code{.DX}.
+\end{itemize}
+
+You can transfer files from DOS as well as Idris.  This is
+slightly less convenient when transferring between disks because you
+have to use the \cmd{D}{Drive} command to switch between source and
+destination disks rather than the arrow keys.  Note, however, that \RD
+keeps a separate set of tagged files for each disk you have read.
+This means that, if necessary, you can tag some files, select another
+disk, specify an Output directory, go back to the first disk, and
+write the files you tagged.
+
+Note that you {\em cannot} transfer files {\em to} an Idris
+disk---\RD\ doesn't know how to write Idris files, only read them.
+
+If you decide that you need a new subdirectory to transfer your files
+to, the \cmd{N}{New} command in the DOS Directory view lets you enter
+the name of a directory to be created (under the currently-highlighted
+directory).  The name is entered on the prompt line (the line just under
+the menu); backspace can be used to correct mistakes.
+
+ 
+\section{Customization}
+ 
+\RD\ has three parameters that can be customized:  the default disk
+drives for Idris and DOS, and the default JCAMP header file.
+These can be specified in either of two ways: in the \RD\ command line,
+or in your \code{AUTOEXEC.BAT} file.
+
+To specify customization parameters in the command line,
+follow the command \code{rd7} with one or more of the following
+options:
+
+\begin{description}
+
+\item[\code{-i} \param{drive-number}] \nl
+This specifies the input (Idris) drive.  The drive should be specified
+as a decimal number.
+
+\item[\code{-o} \param{drive-letter}] \nl
+This specifies the output (DOS) drive.  The drive should be specified
+as a letter followed by a colon.  An additional directory path may be
+appended; it will be set as your current working directory.  This lets
+you start up \RD\ and have it \code{cd} to whatever directory you
+usually transfer files to.
+
+\item[\code{-j} \param{pathname}] \nl
+This specifies the pathname of the default JCAMP header file.
+
+\end{description}
+\noindent Note that a space is {\em required} between the option
+letter (i, o, or j) and the drive-letter, drive-number, or pathname
+that follows it.
+
+To specify customization parameters in your \code{autoexec.bat} file,
+include a line of the form:
+\begin{quote}
+\code{set RD7 =} \param{options}
+\end{quote}
+
+\noindent where the options are the same as the command-line options
+described above.
+
+
+\chapter{Views and Operations}
+ 
+This section contains a complete description of \RD's views and the
+operations that can be performed in them (by means of both cursor keys
+and menus).  It is a slightly expanded version of the online
+help screens.
+
+
+ 
+\section{Main View}
+
+\begin{description}
+\item[About] \nl
+            This command gives you an overview of the program and
+            how to use it.
+\item[DOS] $(\leftarrow)$ \nl
+            Transfer control to the DOS Directory View.
+\item[Idris] $(\rightarrow)$ \nl
+            Transfer control to the Idris Directory View.
+\item[Quit] \nl
+            Exit the program.
+\item[?] \nl
+            Display help.
+\end{description}
+
+ 
+\section{Drive Menu}
+
+\begin{description}
+\item[A-F] [DOS]
+\item[0-7] [Idris]\nl
+        Select a drive for input or output.  The directory of the
+        drive you select will be read in and displayed in tree form.
+\item[/ ] \nl
+            The '/' command returns control to the Main View.
+\item[Esc] \nl
+            The Esc key returns to the Directory View with no action.
+
+\end{description}
+
+\ignore{
+\section{Conversion Type Menu}
+
+\begin{description}
+\item[ASCII, Binary, Jcamp, Spectrum] \nl
+            Specify the conversion type on ALL files in the current
+            directory and its subdirectories, and TAG the files for
+            output as well. 
+\item[/] \nl
+            The '/' command returns control to the Main View.
+\item[Esc] \nl
+            The Esc key returns to the Directory View with no action.
+\end{description}
+}
+
+\section{Idris Directory View}
+
+\begin{description}
+\item[ASCII, Binary, Jcamp, Spectrum] \nl
+%\item[Conversion] \nl
+%            The Conversion command enters a sub-menu that lets you
+            Specify the conversion type (A, B, D, J, S) for the entire
+            directory and its subdirectories.  All files are tagged.
+\item[Tag] \nl
+            The Tag command marks the entire contents of the current
+            directory, and all of its sub-directories, to be written
+            out when the Write command is issued.
+\item[Untag] \nl
+            The Untag command removes the tag mark on the entire contents
+            of the current directory and all of its sub-directories.
+\item[Drive] \nl
+            Select a disk drive for input and read its directory.
+\item[Read] \nl
+            Read the directory on the selected input (Idris) disk,
+\item[Write] \nl
+            Write all tagged files under the current directory.  If the
+	    current directory has any subdirectories containing tagged
+files, corresponding subdirectories will be created in the output
+directory.
+\item[Quit] \nl
+            The Quit command exits the program.
+\item[/] \nl
+            The '/' command returns control to the Main View.
+\end{description}
+
+
+\section{Idris File View}
+
+\begin{description}
+\item[ASCII, Binary, Jcamp, Spectrum] \nl
+            Tells what kind of conversion to do on the current file
+            when it is written out.  (These also tag the file.)
+\item[Tag] \nl
+            The Tag command marks current file to be written out
+            when the Write command is issued.
+\item[Untag] \nl
+            The Untag command removes the tag mark on current file.
+\item[View] $(\rightarrow)$ \nl
+            View a file in a window (non-ASCII files are viewed in Hex).
+\item[Write] \nl
+            Write the current file (whether or not it is tagged).
+\item[Quit] \nl
+            The Quit command exits the program.
+\item[/] \nl
+            The '/' command returns control to the Main View.
+\end{description}
+
+
+\section{DOS Directory View}
+
+\begin{description}
+ 
+\item[Drive] \nl
+            Select a disk drive for output and read its directory.
+\item[New] \nl
+	    Create a new directory.  The name is entered on the prompt
+	    line (i.e. the line below the menu).
+\item[Output] \nl
+            Mark the highlighted directory as the destination for
+            all Write commands.  Make it the DOS working directory
+            (that is, CD to it).
+\item[Read] \nl
+            Read the directory on the selected output (DOS) disk,
+\item[Tag] \nl
+            The Tag command marks the entire contents of the current
+            directory, and all of its sub-directories, to be written
+            out when the Write command is issued.
+\item[Untag] \nl
+            The Untag command removes the tag mark on the entire contents
+            of the current directory and all of its sub-directories.
+\item[Write] \nl
+            Write all tagged files under the current directory. If the
+	    current directory has any subdirectories containing tagged
+files, corresponding subdirectories will be created in the output
+directory.
+\item[Quit] \nl
+            The Quit command exits the program.
+\item[/] \nl
+            The '/' command returns control to the Main View.
+\end{description}
+
+
+\section{DOS File View}
+
+\begin{description}
+\item[ASCII, Binary] \nl
+            Tells how to view the current file.
+\item[Jcamp] \nl
+            Mark the highlighted file as the Jcamp header file.
+\item[Tag] \nl
+            The Tag command marks current file to be written out
+            when the Write command is issued.
+\item[Untag] \nl
+            The Untag command removes the tag mark on current file.
+\item[View] ($\rightarrow$) \nl
+            View a file in a window (non-ASCII files are viewed in Hex).
+\item[Write] \nl
+            Write the current file (whether or not it is tagged).
+\item[Quit] \nl
+            The Quit command exits the program.
+\item[/] \nl
+            The '/' command returns control to the Main View.
+\end{description}
+
+
+\section{ASCII File View}
+
+\begin{description} 
+\item[Binary] \nl
+            The Binary command switches to the Binary File View.
+\item[Quit] \nl
+            The Quit command exits the program.
+\item[/] \nl
+            The '/' command returns control to the Main View.
+\item[Esc] \nl
+            The Escape key is equivalent to the Left Arrow command.
+
+\end{description}
+
+
+\section{Binary File View}
+
+\begin{description}
+\item[ASCII] \nl
+            The ASCII command switches to the ASCII File View.
+\item[Quit] \nl
+            The Quit command exits the program.
+\item[/] \nl
+            The '/' command returns control to the Main View.
+\item[Esc] \nl
+            The Escape key is equivalent to the Left Arrow command.
+\end{description}
+ 
+
+ 
+\end{document}

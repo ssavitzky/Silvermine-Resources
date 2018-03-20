@@ -1,0 +1,754 @@
+\documentstyle[sri]{book}
+\pagestyle{headings}
+
+\setlength{\unitlength}{1pt}
+\thicklines
+
+\title{{\bf RD3} \\ User's Guide} 
+\author{Copyright \copyright\ 1988,1989 by Silvermine Resources, Inc.\\
+	All rights reserved.}
+%
+% Commands local to this document
+%
+\newcommand{\OS}{PETOS}
+\newcommand{\RD}{{\bf RD3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{document}
+
+\titlepage
+{
+\setlength{\unitlength}{2pt}
+\thicklines
+\vspace{1in}
+\begin{center}
+
+\begin{picture}(140,85)
+\put(1,1){\framebox(138,83){}}
+\put(3,67){\framebox(134,15)[c]{\Huge RD3}}
+\put(3,3){\framebox(134,61)[c]{\Huge User's Guide}}
+
+\end{picture}
+
+\copyright\ 1990 by Silvermine Resources, Inc.\quad
+All rights reserved.
+
+\end{center}
+}
+
+
+\tableofcontents
+\markboth{}{Contents}
+
+% === need blank page at end of TOC ===
+
+\chapter{Introduction}
+ 
+\RD\ is a program that runs on the IBM PC, XT, AT, and compatible
+computers, for reading diskettes written under the \OS\
+operating system, and transferring files from them to PC/MS-DOS
+diskettes or hard disks.
+
+
+\section{Features}
+ 
+\begin{itemize}
+\item
+A display-oriented presentation of the directory structure of both
+source and destination file systems.  The display includes multiple
+views including side-by-side display of a disk's directory structure
+(in tree form) and the contents of a selected directory in the tree.
+ 
+\item
+The ability to view the contents of files in either ASCII or
+Hexadecimal on either the source or destination file system.
+ 
+\item
+Menus with extensive context-sensitive help.
+ 
+\item
+The ability to transfer an entire directory tree, preserving its
+structure, with only two keystrokes.
+ 
+\end{itemize}
+
+\newpage
+
+\chapter{Installation}
+ 
+\section{Disk Contents}
+The \RD\ disk contains the following files:
+ 
+\begin{description}
+\item[\code{RD3.EXE}] \nl
+The executable file that implements the \code{rd3} command.  
+ 
+\item[\code{MSHERC.COM}] \nl
+A terminate-and-stay-resident (TSR) program required for displaying
+graphics on a Hercules monochrome graphics card.
+
+\item[\code{README.DOC}] \nl
+A text file containing last-minute notes.
+
+\item[\code{CSS\_HERC.DOC}] \nl
+Information for people using \code{PECSS} with Hercules graphics
+cards. 
+
+\item[\code{AUTOEXEC.BAT}] \nl
+A sample that illustrates how to set the \code{RD3} environment
+variable. 
+
+\item[\code{JCAMP.HDR}] \nl
+Standard JCAMP-DX header file.
+
+\item[\code{CMPRS.HDR}] \nl
+JCAMP-DX header file for compressed data.
+
+\item[\code{XYDATA.HDR}] \nl
+JCAMP-DX header file for files with a single X-Y pair per line, for
+convenient input into spreadsheet or database programs.
+
+\end{description}
+ 
+\newpage 
+\section{Installing Compatibility Disk Drive}
+
+\OS\ disks are written using single-density FM modulation, which a
+PC cannot read.  In order to read \OS\ disks, you must install a
+compatibility drive.  \RD\ is shipped with the MicroSolutions
+Backpack drive, which comes with its own installation instructions.
+You should install your compatibility drive, including its software
+driver, before attempting to use \RD.
+
+%=== may want more here ===
+
+\section{Installing Files}
+
+\begin{enumerate} 
+
+\item
+Start by making a {\em copy} of your \RD\ disk.
+On a system with two floppy drives, give the command
+\begin{dcode}
+diskcopy a: b:
+\end{dcode}
+\noindent
+and then put the \RD\ disk in drive \code{A:}, and a blank disk in
+drive \code{B:}.
+ 
+On a system with only one floppy drive, give the command
+\begin{dcode}
+diskcopy
+\end{dcode}
+\noindent
+and then put the \RD\ disk in the floppy drive.  Exchange it with a
+blank disk when the \code{diskcopy} program prompts you to do so.
+
+\item 
+Put the original disk in a safe place.
+
+\item 
+If you have a hard disk, make a directory on your working disk
+(usually \code{C:}) called \code{rd3}, and copy all of the files on
+the \RD\ disk to it.  You can do this with the commands:
+\begin{dcode}
+mkdir rd3\\
+cd rd3\\
+copy a:*.*
+\end{dcode}
+\noindent (assuming that the \RD\ disk is in drive \code{A:}).
+ 
+(Strictly speaking, you don't have to do this.  You can put \RD\
+in any directory that is listed in the \code{PATH} command in your
+\code{AUTOEXEC.BAT} file.  We find it convenient, however, to keep
+\RD\ and all of our \OS\ files in one place; the examples below
+will assume this configuration.)
+ 
+If you will be using floppy disks, you will probably find it best to
+make another copy of the \RD\ disk and switch to it after booting
+from your usual system disk.  It is also possible to put
+\code{RD3.EXE} on your system disk and switch to a blank (but
+formatted) DOS disk after starting \RD.  This leaves your entire
+DOS disk free for transferring files.
+
+\end{enumerate}
+
+\section{Getting Started}
+
+If you are on a two-floppy system, put the \RD\ working disk in either drive
+\code{A:} or drive \code{B:}, and give the command \code{a:} or
+\code{b:} respectively to make it your current working
+drive. 
+
+Then, give the command:
+\begin{dcode}
+rd3
+\end{dcode}
+\noindent
+to start the \RD\ program. 
+ 
+A menu is shown on the second line of the screen.  You can issue a
+command from the menu either by typing the first character of the
+command, or by moving the highlight to the command (\key{space} moves
+forward and \key{backspace} moves backward) and hitting the \key{enter}
+key.  The `?' key will {\em always} show you a screen with a
+short summary of the current menu and its commands; the `/' key
+always brings you back to the initial menu.  The \cmd{A}{About}
+command in the initial menu gives you an overview of \RD\ and its
+commands.
+ 
+Try moving the highlighted menu item with the \key{space} and
+\key{backspace} keys.  Notice that the line under the menu contains a
+brief description of the highlighted item.  (The first word in the
+menu is not a command but a label for the menu, and its help line
+gives a general description of what commands in that menu are for.)
+
+The line below the description line contains labels for the views
+that occupy the lower portion of the screen.  On the left end of the
+label line is the name of the view that will be reached by striking
+the left arrow key (``From'') in the initial view, and on the right is
+the name of the view that will be reached with the right arrow key.%
+\footnote{In case you were wondering why double-angle symbols are
+shown on the screen instead of arrows, it's because you might want to
+use the ``Print Screen'' key, and the arrows correspond to control
+characters that many printers can't handle.}  When there are two
+views on the screen at the same time, the arrow labels will appear
+over the ``active'' view, i.e. the one the menu refers to.
+
+Next, try giving the commands \cmd{T}{To} (or right arrow) and
+\cmd{R}{Read Disk}.  (Commands are single key\-strokes; no \key{enter}
+key is needed, and either upper- or lower-case letters will work.)
+You will end up with an outline-style display of your disk's directory
+on the left, with the current directory hilighted, and a list of the
+ordinary files in the current directory on the right.
+ 
+Use the right arrow key to move the highlight into the File view. 
+Highlight the file called \code{README} by moving down with the 
+down arrow key.  Use the right arrow key again to view the contents
+of the file.  Use the left arrow key twice to get back
+into the Directory View.
+
+Now go the the Drive View with the \cmd{D}{Drives} command.  Check to
+see whether the compatibility drive (usually drive \code{E:}) has
+been correctly identified.  \RD\ will usually identify it correctly,
+but can be fooled by systems with removable hard drives, and by some
+versions of the BIOS.
+
+\begin{quote}
+  If the compatibility drive is {\em not} correctly identified,
+  specify the correct drive by using the up or down arrows to move to
+  the correct drive, and giving the commands \cmd{S}{System} and
+  \cmd{P}{PETOS}.  You may
+  also have to specify the physical unit number with the
+  \cmd{P}{Physical} command.  The Backpack drive is physical
+  unit 32 by default.
+\end{quote}
+
+Now put a \OS\ disk in your compatibility drive (usually drive
+\code{E:}) and give the command	\cmd{F}{From}  (If the drive is
+already selected as the From drive, you can also use
+left-arrow and \cmd{R}{Read}.  The PETOS disk's directory will be
+read.  Notice that, because PETOS disks do not have subdirectories,
+there is only one view for PETOS disks, combining the volume ID with
+the files.
+
+
+To transfer the entire contents of the \OS\ disk to the DOS disk,
+simply give the commands \cmd{T}{Tag} and \cmd{W}{Write} with the
+cursor highlighting the volume ID (the first line of the view).  If
+you want to be more selective, you can highlight individual files and
+tag them with the `T' command.  The `W' command in a File view
+simply writes the highlighted file without tagging it; in a
+Directory view (DOS only) it writes all tagged files in the highlighted
+directory.
+
+Note that by default, files are tagged as either ASCII or Binary.  
+You can designate files as Binary (and tag them for transfer at the
+same time) with the \cmd{B}{Binary} command.  Similarly the
+\cmd{A}{ASCII} command tags files and designates them as ASCII. 
+In \RD sp, \OS\ files with an extension of \code{.SP} are identified
+as spectra and given a default conversion type which can be changed
+either in the program (from the main view) or on the command line.
+The default conversion type is ``S'' if not specified.
+ 
+
+\chapter{Using RD3}
+ 
+\section{Using the Menus}
+ 
+Menus are shown on the second line of the screen.  You can issue a
+command from the menu either by typing the first character of the
+command, or by moving the highlight to the command (\key{space} moves
+forward and \key{backspace} moves backward) and hitting the \key{enter}
+key.  When using the first character of the command, only a single
+keystroke is needed (no \key{enter} key), and either upper- or
+lower-case can be used for letters.
+ 
+To find out more about a menu command, use \key{space} and
+\key{backspace} to move the highlight to that command.  The line
+underneath the menu gives a brief description of the command.  To find
+out more, type the `?' key, which will always show you a screen with a
+short summary of the current menu and its commands; the `/' key always
+brings you back to the initial menu.  The \cmd{A}{About} command in
+the initial menu gives a more extensive overview of \RD\ and its
+commands.
+
+
+\section{Using the Cursor Keys}
+ 
+The cursor keys are used for moving within a view, and between views. 
+For moving within a view, the up and down arrows move a line at a
+time, and the \key{PgUp} and \key{PgDn} keys move a screen-full at a
+time.  The \key{Home} key moves to the first item in the view (i.e.
+the root directory, first file in a directory, or first line in a
+file).  The \key{End} key moves to the last item in the view.
+ 
+The left and right arrow keys are used to move {\em between} views.
+If there are two views on the screen, (e.g. the Directory and File
+views), left and right arrows will move between them in the obvious
+fashion.  Moving left from the Directory view goes to the {\em other}
+Directory view (i.e. switches between the From and To views). 
+The names of the views reached with the left and right arrows are
+listed at the left and right edges of the screen (or active view, if
+two views are on the screen), on the top line of the view frame.
+
+Moving to the right always gets you more detail, and moving left less
+(or something completely different, as in switching between Directory
+Views).  Thus, moving right from the Directory view gets you to the
+File view and moving right from the File view shows you the {\em
+contents} of the highlighted file.
+ 
+ 
+\section{Transferring Files}
+
+
+Transferring files is a three-step process:
+
+\begin{enumerate}
+\item 
+Select a destination directory for the files, using the
+\cmd{O}{Output} command in the To Directory View.  Note that the
+destination must be on a DOS disk.  If you do not select a
+destination, the default is to transfer to the current working
+directory ({\em not necessarily} the directory highlighted in the To
+view, but the directory that was current when you started \RD; this
+can sometimes be confusing if you highlight a directory and forget to
+mark it as the destination).
+
+Note that the current source disk and destination disk and the
+current output directory are always shown on the bottom line of the
+screen.
+
+\item 
+Tag some files to transfer.  The \cmd{T}{Tag} command tags the
+highlighted file in the File View, and {\em everything} under the
+highlighted directory in the Directory View.  The \cmd{A}{ASCII} and
+\cmd{B}{Binary} commands in the File View both tag and specify a
+file type for viewing.
+
+You can assign a file type to everything under a directory using
+the file type commands (A and B) in the Directory View.
+In \RD sp,  the additional file type commands \cmd{C}{CSS},
+\cmd{J}{JCAMP}, and \cmd{S}{Spectrum} are defined.  (Spectrum
+specifies conversion to Perkin Elmer ``Data Manager'' format.)
+
+The default conversion type for all spectrum files can also be
+specified with the \cmd{C}{Conversion} command in the Main view. 
+
+\item
+Write the files with the \cmd{W}{Write} command in the
+Directory View.
+
+\end{enumerate}
+
+\noindent
+When transferring a single file the second step can be omitted by
+issuing the \cmd{W}{Write} command in the File View with the
+file you want to transfer highlighted.
+
+%=== may not work in PETOS view ===
+
+When a file is written its name may have to be changed; this is done
+automatically.  A file's name may be changed in the following ways:
+\begin{itemize}
+\item
+DOS filenames can contain only uppercase letters and a restricted set
+of special characters.  Lowercase letters in the \OS\ filename are
+uppercased, and special characters not permitted in DOS are replaced
+by `\~{ }' characters.
+\item
+DOS filenames consist of an eight-character name, a period, and a
+three-character extension.
+\item
+If the file to be written already exists, a number is appended to its
+name (or replaces the last characters of the name, if the name is
+already of maximum length).  The number is incremented until a name
+conflict no longer occurs.
+\item
+If you decide that you need a new subdirectory to transfer your files
+to, the \cmd{N}{New} command in the To Directory view lets you enter
+the name of a directory to be created (under the currently-highlighted
+directory).  The name is entered on the prompt line (the line just under
+the menu); backspace can be used to correct mistakes.
+
+
+\section{Transfer and Translation of Spectral Data}
+
+Spectra recorded via CDS on the Perkin-Elmer 3x00 Data Stations are
+saved with the .SP extension.  SP files are in binary form with a
+header containing scan information, etc., and the data as binary
+integers.
+
+Spectral files on PC/MS-DOS systems can be in any of three formats,
+none of which are compatible with the PETOS SP files.  For PECSS and
+PE Data Manager(PEDM), the files are saved with a .SP extension but
+the file formats are incompatible with each other.  Therefore,
+depending upon whether you are using PECSS or PEDM, you should tag the
+file in the PETOS view appropriately.  The conversion-type tag CSS
+activates the PECSS translation.  The conversion-type tag SPECTRA
+activates the translation to Data Manager format which is also used by
+the PE 1600 series systems.
+
+The third translation mode is JCAMP.  This mode translates the PETOS
+SP file from binary to ASCII in a form which meets the JCAMP-DX
+standard for data interchange.  You should use this translation for
+transfer to any other DOS programs such as graphics or spreadsheets.
+JCAMP translation requires that you give \RD\ the name of a header
+file which adds information to the header of the PETOS SP file.  You
+can specify the header file either in the environment variable
+(\code{set RD3=}\ldots, see Section \ref{sec-cust}) or on the command
+line.  It can also be specified or changed at any time by reading the
+DOS directory containing the header file, highlighting your selection,
+and pressing \cmd{H}{Header}.  The full pathname of the selected
+header file is displayed in the upper right corner of your screen.
+
+We have supplied three sample header files on your distribution disk.
+You should feel free to modify these files to suit your particular
+requirements.  In particular, you should place information in the
+ORIGIN and OWNER lines.  The header files can contain any other
+information as described in the JCAMP-DX specification.
+
+Header files can also contain any of three directives to the JCAMP
+translator. Each must be preceded by ``//'', must be in capitals, and
+must be followed by ``='':
+
+\begin{description}
+\item[\tt //DECIMALS=n]\nl
+          {\em Sets no. of decimal places in the ordinate, default=4.}
+\item[\tt //DIF/DUP=]\nl
+            {\em Outputs data in a compressed form.}
+\item[\tt //XYDATA=]\nl
+              {\em Outputs data in 2 columns: wavenumber and ordinate.
+              This is most useful for spreadsheets, etc.}
+\end{description}
+
+The \cmd{C}{Conversion} selection on the main menu tells \RD\ to tag
+all the \code{.SP} files for the desired translation as the directory
+is read from the PETOS disk.  You can also set the default conversion in
+the environment variable or the command line (see Section \ref{sec-cust}).
+
+ 
+\section{Customization}
+\label{sec-cust} 
+
+\RD\ has several parameters that can be customized:  the default input
+and output drives, the parameters of individual drives, and, in 
+\RD sp the default conversion for spectrum files and the pathname of
+the default JCAMP header file.
+These can be specified in either of two ways: in the \RD\ command line,
+or in your \code{AUTOEXEC.BAT} file.
+
+To specify customization parameters in the command line,
+follow the command \code{rd3} with one or more of the following
+options:
+
+\begin{description}
+
+\item[\code{-i} \param{drive-number}] \nl
+This specifies the input drive.  The drive should be specified
+as a DOS drive letter followed by a colon.
+
+\item[\code{-o} \param{drive-letter}] \nl
+This specifies the output (DOS) drive.  The drive should be specified
+as a letter followed by a colon.  An additional directory path may be
+appended; it will be set as your current working directory.  This lets
+you start up \RD\ and have it \code{cd} to whatever directory you
+usually transfer files to.
+
+\item[\code{-d} \param{drive-letter}{[HAP]}{[C]}{[=\param{phys-drive}]}] \nl
+This specifies drive characteristics; any number of --d options can be
+given.  The optional letter H, A, or P specifies a Hard drive,
+AT-type (high-density) drive, or PC-type (low density) drive.  The
+optional C designates a compatibility drive (Backpack or CompatiCard), 
+which is required in order to read \OS\ disks.
+
+\item[\code{-c} \param{conversion-type}] \nl
+This specifies the default conversion type for spectrum (\code{.SP})
+files; the \param{conversion-type} is one of the letters \cmd{C}{CSS},
+\cmd{J}{JCAMP}, \cmd{S}{Spectrum}, \cmd{A}{ASCII}, or \cmd{B}{Binary}.
+ 
+\end{description}
+\noindent Note that a space is not required between the option
+letter (i, o, p, or s) and the drive-letter, drive-number, or drive
+parameter string that follows it.  Space is {\em prohibited} inside a
+drive parameter string.
+
+Customization parameters can also be specified by setting an
+environment variable in your \code{autoexec.bat} file.  To this,
+include a line in \code{autoexec.bat} of the form:
+\begin{quote}
+\code{set RD3 =} \param{options}
+\end{quote}
+
+\noindent where the options are the same as the command-line options
+described above.
+
+Placing an option into the command line overrides a corresponding
+option in the SET command.
+
+\chapter{Views and Operations}
+ 
+ 
+This section contains a complete description of \RD's views and the
+operations that can be performed in them (by means of both cursor keys
+and menus).  It is a slightly expanded version of the online
+help screens.
+
+ 
+\section{Main View}
+\begin{description}
+\item[About]\nl
+           This command gives you an overview of the program and
+           how to use it.
+\item[Conversion]\nl
+           set the default Conversion type for .SP files.
+\item[Drives]\nl
+           Transfer control to the Drives view.
+\item[Quit]\nl
+           Exit the program.
+\item[?]\nl
+           Display help.
+           Use the Esc or left arrow key to return from a help screen.
+\end{description}
+
+\section{Conversion Type Menu}
+\begin{description}
+\item[Ascii]\nl
+	Mark files for ASCII transfer (applies {\em only} to files
+	already in ASCII form).
+\item[Binary]\nl
+	Mark files for Binary (no) conversion on transfer.
+\item[CSS]\nl
+	Mark \code{.SP} files for CSS conversion.
+\item[Jcamp]\nl
+	Mark \code{.SP} files for Jcamp conversion (to be used
+	whenever ASCII output is desired).
+\item[Spectrum]\nl
+	Mark \code{.SP} files for Spectrum conversion (use for PE Data
+	Manager or PE 1600).
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\item[Esc]\nl
+           The Escape key returns to the Main View menu without making
+           any selection.
+\end{description}
+
+\section{Drives View}
+\begin{description}
+\item[DriveType]\nl
+           Select type of drive (PC, AT, etc.).  The default format
+           of an  \OS\ disk is determined by the drive type.
+\item[MediaType]\nl
+           Select type (density) of media. \\
+	   HD: 1.2Mb, MD: 720K, DD: 360K, LD: 180K
+\item[System]\nl
+           Select a file system (operating system) for the drive.
+           The choices are DOS and \OS.
+\item[From]\nl
+           Specify hilited drive as source; go to From view.
+\item[To]\nl
+           Specify hilited drive as destination; go to To view.
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\end{description}
+
+
+\subsection{File System Type Menu}
+\begin{description}
+\item[DOS, PETOS]\nl
+           Specify the file system (operating system) with which
+           to read the current drive.  (PETOS applies only to the
+           Compatibility drive.)
+\item[/]\nl
+           The `/' command returns control to the main menu.
+\item[Esc]\nl
+           The Esc key returns to the Directory View menu with no
+           action.
+
+\end{description}
+
+\subsection{Drive Type Menu}
+\begin{description}
+\item[AT]\nl
+           AT-type (high density).  Used for high-density DOS disks.
+\item[Compatibility]\nl
+           This selection is a toggle; it turns the Compatibility flag
+           for the drive either on or off.  Compatibility drives are
+	   required in order to read \OS\ disks.
+\item[Hard]\nl
+           Hard disk.
+\item[PC]\nl
+           PC-type ('double' density).
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\item[Esc]\nl
+           The Escape key returns to the Drive View menu without making
+           any selection.
+
+\end{description}
+
+\section{Source (From) Directory View}
+These commands also apply to the PETOS combined directory/file view
+when the volume name (the top line of the view) is highlighted.
+
+\noindent
+\begin{description}
+\item[ASCII, Binary, CSS, Jcamp, Spectrum]\nl
+           Specify the conversion type on ALL files in the current
+           directory and its subdirectories, and TAG the files for
+           output as well.
+\item[Drives]\nl
+           Go to the Drives view to select a disk drive for input
+           or change the parameters of the current input drive.
+\item[Read]\nl
+           Read the directory on the selected input disk,
+\item[Tag]\nl
+           The Tag command marks the entire contents of the current
+           directory, and all of its sub-directories, to be written
+           out when the Write command is issued.
+\item[Untag]\nl
+           The Untag command removes the tag mark on the entire contents
+           of the current directory and all of its sub-directories.
+\item[Write]\nl
+           Write all tagged files under the current directory.
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\end{description}
+
+
+\section{Source File View}
+These commands also apply to the PETOS combined directory/file view,
+when a file (any line except the top line of the view) is highlighted.
+
+\noindent
+\begin{description}
+\item[ASCII, Binary, CSS, Jcamp, Spectrum]\nl
+           Tells what kind of conversion to do on the current file
+           when it is written to the output directory.  (These also
+           tag the file.)
+\item[Tag]\nl
+           The Tag command marks current file to be written out
+           when the Write command is issued.
+\item[Untag]\nl
+           The Untag command removes the tag mark on the current file.
+\item[View (or right arrow)]\nl
+           View a file in a window (non-ASCII files are viewed in Hex).
+\item[Write]\nl
+           Write the current file (whether or not it is tagged).
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\end{description}
+
+
+\section{Destination Directory View}
+\begin{description}
+\item[Drives]\nl
+           Go to the Drives view to select a disk drive for output
+           or change the parameters of the current output drive.
+\item[New]\nl
+           Create a new directory.  Enter the name on the prompt line.
+\item[Output]\nl
+           Mark the highlighted directory as the destination for
+           all Write commands.  Make it the DOS working directory
+           (that is, CD to it) if it is on a DOS disk.
+\item[Read]\nl
+           Read the directory on the selected output disk,
+\item[Tag]\nl
+           The Tag command marks the entire contents of the current
+           directory, and all of its sub-directories, to be written
+           out when the Write command is issued.
+\item[Untag]\nl
+           The Untag command removes the tag mark on the entire contents
+           of the current directory and all of its sub-directories.
+\item[Write]\nl
+           Write all tagged files under the current directory.
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main Menu.
+\end{description}
+
+
+\section{Destination File View}
+\begin{description}
+\item[ASCII, Binary]\nl
+           Tells how to view the current file.
+\item[Header]\nl
+	  Make this file the Jcamp header file
+\item[Spectrum]\nl
+	  Mark file for Spectrum viewing
+\item[Tag]\nl
+           The Tag command marks current file to be written out
+           when the Write command is issued.
+\item[Untag]\nl
+           The Untag command removes the tag mark on the current file.
+\item[View (or right arrow)]\nl
+           View a file in a window (non-ASCII files are viewed in Hex).
+\item[Write]\nl
+           Write the current file (whether or not it is tagged).
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\end{description}
+
+
+\section{Ascii File View}
+\begin{description}
+\item[Binary]\nl
+           The Binary command switches to the Binary File View.
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\item[Esc]\nl
+           The Escape key is equivalent to the Left Arrow command.
+\end{description}
+
+
+\section{Binary File View}
+\begin{description}
+\item[ASCII]\nl
+           The ASCII command switches to the ASCII File View.
+\item[Quit]\nl
+           The Quit command exits the program.
+\item[/]\nl
+           The `/' command returns control to the Main View.
+\item[Esc]\nl
+           The Escape key is equivalent to the Left Arrow command.
+\end{description}
+
+ 
+\end{document}
+        

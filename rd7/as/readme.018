@@ -1,0 +1,27 @@
+Steve:
+
+	Finally set up my bpackages, so now can get wrap in a doc or
+txt file!
+
+	The new Data Manager files set up an exact numer of lines
+since some stupid programmer didn't provde the flexibility that was
+built into the spec.  Will investigate further, but this will do for
+now.
+
+	The new graphsp routine MAY fix the fact that I get no text
+in VGA mode. Can only test by going into PE.
+
+	Couldn't remember if you had the JCAMP changed files so
+included them anyway.
+
+	To ensure that I'm up to date, can you send me complete
+c files from AS directory and PEDM directory.
+
+	I tried make in AS directory, but got "command not found" for
+rm and lib. Please send.
+
+	Look over license1 and return with any changes and
+suggestions, and then I'll send to lawyer.
+
+			Love to all
+

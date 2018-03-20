@@ -1,0 +1,55 @@
+                        Thermal data on your PC
+
+	It's easy with rd7 Version AB plus PCTHERM.  rd7AB is a general
+purpose utility for the PC which allows you to read and examine the
+data on Perkin-Elmer 7000 series floppy disks and transfer the data
+directly to PC hard disks or floppies.
+
+	ASCII data such as reports are directly readable after transfer. 
+But thermal files are in binary form after transfer - unreadable by any
+PC programs.  PCTHERM reads the binary data, graphs it, and
+optionally converts it into ASCII tables easily read by any PC programs.
+The data header is in JCAMP-DX format, while the data itself is output
+as X,Y data columns.  For direct entry into a spreadsheet or similar
+program you can elect to output only the X and Y data columns.
+
+To run the PCTHERM program we recommend the following:
+
+	1. Make a new directory on your hard disk
+            For example: PCTHERM.
+	2. Place PCTHERM.EXE in that directory
+	3. Make a subdirectory called PC
+	4. Transfer your thermal files to the PCTHERM directory using     
+             rd7 BINARY transfer.
+	5. Execute PCTHERM as described below.
+	6. The converted files will be written to the subdirectory       
+             \PCTHERM\PC with the same name as the input file.
+
+	PCTHERM normally places a JCAMP-DX style header at the beginning
+of the data and adds a trailer line following the data containing the
+characters ##END=.   Options allow the elimination of either the
+header or the trailer or both.  You can set the options at each
+command, or permanently using the DOS SET command.   Syntax is as
+follows:
+	          PCTHERM -h -e filename
+
+	The flags can be in any order or omitted.  -h will remove the
+header information, -e will remove the ##END= line.
+
+	Alternatively, you can use SET PCTHERM=-h -e, and the options
+will be in effect every time you call PCTHERM.  (Be sure there is no
+space between M and =). 
+
+	Thus, you can have SET PCTHERM=-e in your AUTOEXEC file and
+run: PCTHERM -h filename.  The effect will be to have no header
+and trailer.   To remove the SET information just enter: SET PCTHERM=
+
+	You can inspect your setting at any time by just entering SET.
+
+	There are two other flags. -d suppresses all file output, -g
+suppresses graphical display of data and writes the file immediately.
+
+	If you elect to display graphical data, you may suppress file
+output by entering q or n at the prompt "Press any key..."  
+
+

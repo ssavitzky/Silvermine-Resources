@@ -1,0 +1,44 @@
+README for RD7  Version 1.01  89 Mar 20
+
+    See RELEASE.NOT for the complete set of notes.
+
+MAJOR ADDITIONS & CHANGES:
+
+    Fix segment wrap bug on ascii and binary copy.
+
+(1.00)
+    Pre-allocate buffer for file.  If a file is bigger than the
+    buffer (120K) only the first buffer-full can be viewed.
+
+    Larger files can be copied as ascii or binary, but not converted.
+    NOTE:  the code that does this hasn't been tested--I don't have a
+           7000 disk with a huge file on it.  Try it!
+
+MODULES CHANGED IN AS
+
+    Made sure versions were up to date.
+
+
+MODULES CHANGED IN LIB
+
+    None
+
+MODULES CHANGED IN DOC
+
+    None
+
+
+KNOWN HOLES:
+
+    There's still no checking for which kind of disk is loaded 
+    (which DOESN'T cause a hardware OR DOS error!).
+
+    Query user about overwriting files(?)
+
+
+
+
+
+
+
+

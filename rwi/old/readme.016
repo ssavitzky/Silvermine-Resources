@@ -1,0 +1,26 @@
+README for RWi  Version 0.16  89 Dec 11
+
+    See RELEASE.NOT for the complete set of notes.
+
+MAJOR ADDITIONS & CHANGES:
+
+    Some of the larger modules have been split up.  This is mainly in
+    preparation for the eventual merge into RD7.  Among other things,
+    code which is only used in RAW is now out of RWI (about 2.5Kb).
+
+    When moving in the Directory view, the Files view is not updated
+    if there are command characters still to be read.  This makes
+    moving around in the directory tree MUCH faster.
+
+    The Directory view now displays total number of files and total
+    size for each directory.
+
+    Reading a damaged disk no longer hangs.
+
+KNOWN BUGS:
+
+    Viewing a binary file in ascii mode may be very slow.
+
+    It only writes short-format files at the moment (no more than 8
+    contiguous pieces.)  This is OK if the disk you are writing to is 
+    initially empty.

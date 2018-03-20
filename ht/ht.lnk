@@ -1,0 +1,5 @@
+data help main convert +
+	..\lib\dir ..\lib\disk ..\lib\screen ..\lib\view ..\lib\viewer +
+	..\lib\filevr ..\lib\coops ..\lib\tree ..\lib\curse ..\lib\menu
+ht.exe /EXEPACK /NOI /SE:256
+

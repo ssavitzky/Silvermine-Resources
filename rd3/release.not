@@ -1,0 +1,293 @@
+=====================================================================
+=                          RELEASE NOTES			    =
+=====================================================================
+
+----	---------------------
+DONE:	Version 1.01    910429
+----	---------------------
+
+1.01	Fixed problem copying large files (1.0).
+	[count vbl (c) too small in PETOS:xread()]
+
+
+BUGS:
+
+	Reading a DOS disk as PETOS hangs (0.07)
+	[I can't reproduce this.  AT problem?]
+
+TO DO:
+
+	Should flag be "-pd" to select defaults as above for d:, and
+	"-pe=10" to select my compaticard ??
+
+WISH LIST:
+
+	Ought to use fread/fwrite in DOS Dir nodes. (0.08)
+
+	When cursor is in From dirs or files, should always display
+	current source and destination PATHS on bottom line.  (0.06+)
+
+	Print command (tree, directory, or file) (0.04)
+	(Next version)
+
+	Probably ought to be able to write as well as read. (0.01)
+	(Next version)
+
+=====================================================================
+=                              DONE				    =
+=====================================================================
+
+----	---------------------
+DONE:	Version 1.0    910108
+----	---------------------
+
+1.0	Changed version number to 1.0
+
+1.0	Printed final copy of manual.
+
+----	---------------------
+DONE:	Version 0.17   901204
+----	---------------------
+
+0.17	Default conversion for spectra not handled correctly (0.16)
+
+0.17	Shipper: +n for serial number doesn't terminate field (0.16)
+
+0.17	Write manual. (0.09+)
+
+----	---------------------
+DONE:	Version 0.16   901126
+----	---------------------
+
+0.16	Still can't reliably find compat. drive.  (0.12)
+
+----	---------------------
+DONE:	Version 0.15   901122
+----	---------------------
+
+0.15	Fixed signed/unsigned problem in getdtae (0.14)
+
+0.15	Draft of manual.
+
+----	---------------------
+DONE:	Version 0.14   901105
+----	---------------------
+
+0.14	Keep original (ascii) date around in XDir struct; use in
+	Jcamp conversion (convert:getdate())	(0.13)
+
+0.14	Added new as/pedm/encode.c (0.13a)
+
+----	---------------------
+DONE:	Version 0.13   901026
+----	---------------------
+
+0.13	Main help screen has Drive menu in wrong place. (0.12)
+
+0.13	Dates before 1980 are wrong.  Microsoft kludgery. (0.12)
+	[display as PRE-1980; copy as date of transfer.]
+
+----	---------------------
+DONE:	Version 0.12   901016
+----	---------------------
+
+0.12	SP files should get tagged with a default conversion, which
+	should be settable by menu or cmd line/environment (0.09)
+
+0.12	If starting from a hard disk and can't find a Compat drive,
+	it claims that drive A is Compat. (0.11)
+
+0.12	Modify shipper to make disks with sequential s/ns, e.g. 
+		-sb000101 -n5
+	to generate 5 disks starting at s/n b000101 (0.09)
+
+----	---------------------
+DONE:	Version 0.11   900924
+----	---------------------
+
+0.11	Drive classification still doesn't work on AT's.
+	[use int 21 function 4408 to spot removable-media drives]
+
+0.11	Don't say "CompatiCard"--rd3 uses "backpack" (0.10) 
+	[How about "Compatibility", which keeps the "C"	abbreviation]
+
+0.11	PETOS implies backpack/compaticard: don't show on drives.
+	[shown as Compatibility]
+
+0.11	Selection of PETOS should set Media = S, DriveType=Compat.
+	[OS selection in drive menu.  Does NOT set physical drive #]
+
+----	---------------------
+DONE:	Version 0.10   900917
+----	---------------------
+
+0.10	Merge in changes from AS (0.09)
+
+0.10	Modify startup screen: no write; no customization (0.09)
+
+0.10	Output filenames on botLine wrong when writing from PETOS. (0.07)
+	[from PETOS only.  Nobody seems to set outPath except
+	 cvOpenDosFile.  OOPS!  need it in cvCopy and cvCopyInit.
+	 uses name of last DOS file in dir; blank if DOS disk empty.]
+
+----	---------------------
+DONE:	Version 0.09   900827
+----	---------------------
+
+0.09	Need to identify filetypes by extension. (0.03-)
+	[Use class var -> table.  .SP -> Unknown]
+
+0.09	Drive letter confusion when logical drives > physical (0.08)
+	Can't identify compaticard drive correctly in this case.
+
+0.09	Size sometimes comes out bad in Dst File view.  (0.08)
+	[Due to file getting fclosed before calling gCloseFile]
+
+0.09	TO file view has Jcamp command as well as Header. (0.08)
+
+0.09	Files copied to empty dest. disk don't show up unless 
+	you do a read; show up OK in subdir. (0.01)
+	[because file view needs to get reset from null list.]
+
+0.09	Drive view: have to set PC before setting CompatiCard (0.08)
+	[I had fixed this in options but not menu items]
+
+----	---------------------
+DONE:	Version 0.08   900812
+----	---------------------
+
+0.08	PETOS dates are sometimes bad. (0.07)
+	[Not clear this is a bug, but we put in more checks]
+
+0.08	[Can identify PETOS ascii/binary files from header.]
+
+0.08	PETOS directory view should give more information (0.03)
+	[both dates, record length/separator, etc.]
+
+0.08	There are reference count problems if you view the same drive
+	as source and dest. (0.01)
+
+0.08	Convert.c: fclose done in wrong place on DM, UV copies. (0.07)
+
+0.08	Missing conversion routines for SP, UV files. (0.01+)
+
+0.08	Convert.c lines 450, 503: long/short mismatch (0.07)
+
+0.08	Writing: nothing to right of arrow the first time; second
+	file gets destination from the first. (0.07)
+
+0.08	Ascii files need to have CR translated to CRLF on copy.	(0.00)
+
+----	---------------------
+DONE:	Version 0.07   900612
+----	---------------------
+
+0.07	MSC-6 fixes in disk.c and rd3sp.lnk (0.06)
+
+0.07	Need a way to enter drive# in Drives view (0.05)
+	["P" (PhysNum) command]
+
+0.07	Exiting a spectrum view with <- beeps due to 2-char code (0.05)
+    	[in as/graphsp]
+
+0.07	Should display "reading" on status line when reading a file
+	to be viewed. (0.06)  [easier to display in view window]
+
+----	---------------------
+DONE:	Version 0.06   900604
+----	---------------------
+
+0.06	Need stubs for uv_do and dm_do; CSS filetype. (0.05)
+	[stubs commented out in convert.c]
+
+0.06	Various type mismatches revealed by MSC 6.0 (0.05)
+	[dir.c menu.h petosdir.c]
+
+0.06	Scrolling up in long DOS file (3800-point DX file) doesn't go 
+	all the way back to top (0.04) 
+	[Couldn't handle blank line ended with LF, not CRLF.]
+
+0.06	Files with no date should get today's date when copied. (0.05)
+
+0.06	copy/spectrum-view buffer should be 8K (0.05)
+
+0.06	CompatiCard option on cmdline should imply PC drive (0.05)
+
+----	---------------------
+DONE:	Version 0.05   900529
+----	---------------------
+
+0.05	Volume name should not contain drive number (0.04)
+
+0.05	Top line too crowded -- tagged files overlaps JC header (0.02)
+	[Move header filename over; trim to name only if too long.]
+
+0.05	Drive E is flagged as hard disk even if compat-card. (0.04)
+
+0.05	DOS files weren't getting opened in TEXT mode for Jcamp
+	conversion. (0.04)
+
+0.05	Make space optional after command-line flags (0.01+)
+
+----	---------------------
+DONE:	Version 0.04   900514
+----	---------------------
+
+0.04	JCAMP conversion dies with "floating point error - invalid"
+	somewhere after writing out the header. (0.02)
+
+0.04	The option that sets the JCAMP header dir. should be H, 
+	not J as at present (0.03)
+
+0.04	Spectrum view gives different results first and nth time
+	(first time is wrong) (0.02)
+
+0.04	Need to automatically identify compaticard disks. (0.01)
+
+----	---------------------
+DONE:	Version 0.03   900508
+----	---------------------
+
+0.03	Several errors linking rd3sp.exe -- mostly multiple defs. (0.02)
+
+0.03	Since there's no hierarchy, should show PETOS directory in
+	a single, full-width window. (0.01)
+
+0.03	Single-sided disks try to read side 1 anyway. (0.02)
+	[I was checking for 14 in decimal, not hex!]
+
+0.03	After viewing a file, copying it gets garbage.  (0.02)
+	[Bugs in the buffering code; wasn't closing after view.]
+
+0.03	Seek in PETOS files doesn't work. (0.02)
+
+(bug)	Ascii files are terminated by ^Z.  Garbage appears after the
+	end; apparently the length is (sometimes?) wrong.  (0.00)
+	[Actually, this was a symptom of a more serious length bug.]
+
+----	---------------------
+DONE:	Version 0.02   900501
+----	---------------------
+
+0.02	3500 disks are single-sided. (0.01)
+	[Untested -- I don't think I have any single-sided disks]
+
+0.02	Needs spectrum format conversion and viewing from rd7. 	(0.01)
+	[Conversion still buggy]
+
+----	---------------------
+DONE:	Version 0.01   900212
+----	---------------------
+
+0.01	Created from RWI version 0.20
+    	
+0.01	Clusters are addressed by cluster number; RIBs by sector
+	number.
+
+0.01	Ascii files have lines ending in CR.  Need to parametrize
+	FileVr by OS of the file viewed (class vars?).
+
+0.01	Disk timeout causes a spurious read failure.
+	[Zero sector count in xrewind due to type mismatch.]
+
+

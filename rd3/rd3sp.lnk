@@ -1,0 +1,7 @@
+mainsp datasp helpsp converts  petos petosdir +
+	..\lib\dir ..\lib\disk ..\lib\screen ..\lib\view ..\lib\viewer +
+	..\lib\filevr ..\lib\coops ..\lib\tree ..\lib\curse ..\lib\menu
+rd3sp.exe /EXEPACK /NOI /SE:256
+
+as\sp3  as\pedm\dm as\cuv\uv ..\as\sp graphics
+

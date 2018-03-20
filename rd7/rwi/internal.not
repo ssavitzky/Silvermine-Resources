@@ -1,0 +1,130 @@
+=====================================================================
+THINGS TO DO -- INTERNAL
+=====================================================================
+
+IN PROGRESS / DONE
+
+0.12	gFind should start with the kids.
+
+0.09	Make sure CONVERT can handle both read and write to iRMX.
+	The name-fixing and verification stuff should go into dirs.c
+	and irmx.c.
+
+0.07	gRead shouldn't automatically close (open's ok).
+
+0.07	gSeek and gTell for Dirs.  gSeek needs xPrvBlk for speed.
+
+0.07	FileViewer:  use two buffers for efficiency.  All clones of a
+	viewer must share the same set of buffers.  Sort of a
+	bidirectional stream.
+
+0.07	gOpenFile(dir, mode) now exists.  Maybe ought to go into
+	gOpen, but save that for later.
+
+MUST DO:
+
+	We may get into trouble if there is more than one iRMX
+	disk in the system.  Too much use of dDrive and curVolInfo. 
+	Stash current volume info in XFile or Dir (or make root a
+	separate class).
+
+
+OUGHT TO DO:
+
+	Open: If you create the node first, you don't need to specify
+	ascii/binary/whatever.	(On the other hand, std. C specifies
+	the stream ops, not the handle ops.)
+
+	Conversion should be generalized using filetype table and
+	registered converters.
+
+	Move buffer stuff into Dirs?
+
+	Generic stuff ought to go into ../LIB, and get used in RD7 as
+	well.
+
+	Add gRename, gUnlink to Dir class.
+
+	Read, write, seek, tell, etc. should take a file handle 
+	(magic cookie) as an arg.  Eliminate dir.file field.
+
+	Should separate DOS-specific stuff into yet another file,
+	which would simplify a Unix port.  Mostly directory handling. 
+	Could use the BSD directory routines.
+
+	Parametrize filetypes and filesystems better.  Use tables 
+	instead of enum	type and switch stmts.
+
+
+	Menus for Dir and File views should depend on the filesystem. 
+
+
+	The error message view should be a Text view.  This would
+	allow Help view to be re-written, and also let errorPrintf
+	output multiple lines.  Vertical centering flag would help.
+
+	Make Help view take a Menu instead of an array.
+	Menus:  add HELP macro, entry type.  Move screen help line
+	to label string after ':'.  Make closure type (void*).
+
+
+	Allow the Dir trees to be partial.  Scavenge nodes that
+	aren't visible.	 (Basically an outline mode)
+
+	Selective scavenge on Dir trees: can delete contents if 
+	tcount = 0 or tcount = fcount, and not on path to dest.
+
+	Fold changes back into RD7.  Put DISK, CONVERT, and HELP
+	modules in separate directories for each product.
+
+NOTES:
+
+=====================================================================
+DONE:
+=====================================================================
+
+0.04	Use MsgView for messages instead of InitView.
+
+0.04	Menus.h: use void* for closure instead of char*
+
+0.03	Split view, screen, & menu object defs into separate file.
+	(this file will be almost all data, some stat & init code)
+
+0.03	View: make more generic by separating view, which manages the 
+	window and cursor location, and viewer, which traverses the
+	object being viewed.
+
+0.03	Split View.[ch] into View and Viewer.
+
+0.03	Viewer for Drives (add filesystem, disk format to existing
+	drive info (density, tracks, sectors)).
+
+(REJ)	Drive roots probably ought to be their own subtype of Dir.
+	They're pretty different, including having a different
+	gHeader string.
+0.03	[Alternative: use an array-oriented Viewer.]
+
+
+0.02	Finish hacking main and convert for generic gReadFile,
+	gWriteFile.  dCopyDosFile, etc. are now bogus.
+
+
+0.01	In addition to switching file systems, make it easier to do
+	so again in the future.  Parametrize things better.
+
+0.01	Array of drive-info structures.  Compaticard?  Double-track?
+
+0.01	Update Dir structure and disk.[ch] for iRMX-86
+
+0.01	Split disk.c into disk.c (sector read/write), 
+			  irmx.c (directory and file read/write)
+
+0.01	Ought to have disk browser (absolute sector dump)
+	Treat tracks as "files"; commands at track & drive level for
+	density, sectors/track, sector size.
+
+0.01	Investigate CopyIIpc and Compaticard boards
+
+0.01	Change Idris -> X (i.e. something neutral)
+	       rdi.c -> main.c, rdi.h -> version.h
+

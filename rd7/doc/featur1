@@ -1,0 +1,45 @@
+rd7 FEATURES:
+
+	* Works on any PC/MS DOS computer, such as IBM PC/XT/AT or
+	     fully compatible clones, and PS/2 systems fitted with
+	     a 5 1/4 inch drive.
+
+	* Frees your PE7000 for instrument work.  
+
+	* Work with PE7000 disks wherever your DOS Personal Computer
+	     is Located.
+
+	* Single Line Menus with a second explanation line for each
+	     highlighted selection guides the new or infrequent user.
+
+	*Single keystroke selection of menu items for the expert.
+
+	*Selection of any 5 1/4 inch drive for input from the PE7000
+	     disk.
+
+	* Selection of any drives and/or directory for output to DOS.
+	      Defaults to the current directory.
+
+	* Displays, at all times, the input drive and output drive
+	     and directory path.
+
+	* Displays, in tree form, either the Idris directory or the
+	     DOS directory structure.
+
+	* Displays in list form, the files in any selected DOS
+	     directory, including date written and number of bytes.
+
+	* Displays in list form, the files in any selected Idris
+	     directory, including date written, number of bytes,
+	     and transfer option.
+
+	* View and scroll through the contents of individual files
+	     on either the Idris or DOS disks in either ASCII or binary.
+
+	* Version SP - View of .SP files displays the spectrum and
+	     full status report from the spectrum header, including
+	     instrument number, date and time written, and IDENT line.
+
+	* On-line help screens.  A manual is provided but is hardly
+	     necessary.		     
+

@@ -1,0 +1,23 @@
+README for RWi  Version 0.15  89 Dec 4
+
+    See RELEASE.NOT for the complete set of notes.
+
+MAJOR ADDITIONS & CHANGES:
+
+    Files that appear to be non-ascii are viewed in binary.  These
+    are files containing nulls or long lines in the first 2K
+    characters.
+
+    File types (Ascii and Binary) are back, for setting default type
+    for viewing.
+
+
+KNOWN BUGS:
+
+    The disk with files=50, es-41, 48tpi has problems.  It appears to
+    have a damaged track 0, and it contains a LONG file that doesn't
+    read properly.
+
+    It only writes short-format files at the moment (no more than 8
+    contiguous pieces.)  This is OK if the disk you are writing to is 
+    initially empty.

@@ -1,0 +1,46 @@
+NOW with
+
+      rd7 , you can:
+
+Copy Perkin-Elmer 7000 idris data to DOS using your PC
+	Easily
+	Quickly
+	Conveniently
+    Without tying up your instrument computer!
+
+	The two versions of rd7, Version AB for ascii/binary data
+and Version SP for ascii/binary and spectral data, are powerful,
+easy to use PC/MS-DOS utilities which allow an IBM PC or compatible
+clone to directly read and transfer data from 5 1/4 inch floppy
+disks written by Perkin-Elmer's 7000 series Professional Data
+Stations under the Idris operating system.  The utilities display
+the directories on the 7000 disk in tree form and, in an adjacent
+window, the contents of each individual directory or subdirectory
+as it is selected in the directory window.  Individual files can be
+viewed in either ascii or binary prior to transfer.  Files can be
+transferred individually or files and/or directories can be "tagged"
+and then, with as single keystroke, written to any DOS disk or
+selected directory for further processing by programs such as
+spreadsheets or data bases.
+
+	In addition, Version SP of the utilities recognizes spectral
+data in Perkin-Elmer's .SP file format.  Viewing one of these files
+produces a graphical display of the spectrum and a status report
+similar to that produced by the Perkin-Elmer STATUS command.  Spectrum 
+files can be copied directly, transferred in JCAMP-DX format, or 
+converted to Perkin-Elmer's new Data Manager format for DOS based 
+computers.
+
+	Lotus-like menu structure and extensive on line context-
+sensitive help make the utilities particularly easy to use. The user
+can also display and examine DOS directories and files to determine
+where best to transfer files.  DOS files can also be viewed and copied
+between disks or directories.
+
+	The utilities are especially useful for examination and
+transfer of data without involving the Perkin-Elmer computer which,
+in most laboratories, tends to be busy with instrument oriented tasks.
+
+ 
+
+

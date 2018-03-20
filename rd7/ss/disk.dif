@@ -1,0 +1,10 @@
+233c233,237
+< 	if (outregs.h.al == 0 || outregs.x.cflag != 0) {
+---
+> 	/*
+> 	** One ought to be able to check for outregs.h.al == 0
+> 	** but some BIOSs aparently blow this.
+> 	*/
+> 	if (outregs.x.cflag != 0) {
+236d239
+< 		if (outregs.h.al == 0) es = "DOS disk";

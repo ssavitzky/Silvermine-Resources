@@ -1,0 +1,42 @@
+Following needs work, particularly expansion of your bio.
+Put into a page in TEX form for the brochure.  My plan is to have
+page 1 = Introducing, page 2 = some screen shots, page 3 =
+specifications, and page 4 = the following with lower right of page
+having address(PO Box) and phone no.
+
+
+
+             About Silvermine Resources and rd7
+
+
+Dr. Abraham Savitzky, President and Director of Software Development,
+formed Silvermine Resources following his retirement from The
+Perkin-Elmer Corporation.  He was a pioneer in the use of computers in
+analytical chemistry(1).  At Perkin-Elmer he had been responsible for
+the development of all the spectroscopy data handling products from
+the earliest time sharing software, through the Interdata 6/16
+minicomputer, through the 3500/3600 Data Station CDS software, and
+finally the CDS III software for the 7000 series Data Station.  He
+wrote the data transfer modules for transfer of 3500/3600 data to
+CDS III.  He was Perkin-Elmer's representative on the JCAMP committee
+which developed the Data Exchange Specifications(2).  As a consultant
+to Perkin-Elmer he wrote the current CDS III JCAMP conversion routines
+TODX and FRDX.  rd7 was written to answer his personal needs for
+access to 7000 files on Personal Computers.
+
+Coauthor Stephen R. Savitzky, who studied at the Artificial
+Intelligence Laboratory of Stanford University, has had extensive
+experience writing microcomputer software.  He is the author of
+"Real-Time Microprocessor Systems" Van Nostrand Reinhold, New York
+(1985). <<M O R E>>
+
+(1)	Savitzky, A., "Data Processing in Analytical Chemistry",
+	Analytical Chemistry (33), 25A, December 1961.
+	Savitzky, A. and Golay, M.J.E., "Smoothing and Differentiation
+	of Data by Simplified Least Squares Procedures" Analytical
+	Chemistry (36) 1627, July 1964.
+
+(2)	McDonald, R.S. and Wilks,P.A., "JCAMP-DX: A Standard Form for
+	Exchange of Infrared Spectra in Computer Readable Form", 
+	Applied Spectroscopy (42) 151, January 1988.
+

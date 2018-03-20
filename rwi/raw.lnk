@@ -1,0 +1,6 @@
+..\lib\raw data_R help_R main convert irmx irmxdir +
+	..\lib\dir ..\lib\disk ..\lib\screen ..\lib\view ..\lib\viewer +
+	..\lib\filevr ..\lib\coops ..\lib\tree ..\lib\curse ..\lib\menu
+/EXEPACK /NOI /SE:256
+
+

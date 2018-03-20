@@ -1,0 +1,5 @@
+data help main convert petos petosdir +
+	..\lib\dir ..\lib\disk ..\lib\screen ..\lib\view ..\lib\viewer +
+	..\lib\filevr ..\lib\coops ..\lib\tree ..\lib\curse ..\lib\menu
+rd3.exe /EXEPACK /NOI /SE:256
+

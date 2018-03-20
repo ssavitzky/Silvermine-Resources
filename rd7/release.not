@@ -1,0 +1,772 @@
+RD7 HISTORICAL NOTE FILE
+------------------------
+
+This file is organized in reverse chronological order.  Completed or
+fixed items are tagged in the left margin with the number of the
+version in which they first appear.  The version number at the end
+of each item is the version in which the bug or deficiency was first
+noticed.  (N+ means it was noticed while working on version N+1.)
+
+
+VERSION 1.01  released 890320
+
+    Items Completed
+    ---------------
+
+(1.01)	Fixed segment wrap bug that caused files over 64K to copy
+	incorrectly.
+
+    New Items To Be Done:
+    ---------------------
+
+    Old Items (still) To Be Done:
+    -----------------------------
+
+	In Dos view, doing T-> very quickly hung in file menu with no
+	files in the directory.  Doing it slowly (after reboot)
+	worked. (i.e. beeped) (v0.20)
+	[=== Can't reproduce ===]
+
+	Check disk flavor on format error and report if it's the
+	other kind.  [NOTE:  we don't seem to get a read error!] (v0.6+)
+
+ 	When writing, ask if user wants to overwrite existing files (v0.1)
+  	(yes, no, all) 
+
+	[Does the BIOS know if a disk was swapped?] (v0.6)
+	[Aparently AT does and PC doesn't]
+
+	Check space remaining on output disk.  Can do this BEFORE
+	STARTING to write!  [see _dos_getdiskfree fn] (v0.6)
+
+    LOOK INTO:
+    ---------
+
+	Commodore disks (C64 and maybe Amiga) (v0.17)
+
+	Be nice if CURSE could display to a graphics screen, so we
+	could use the menu pkg in spectrum display mode (v0.14+)
+
+	Add fast routine to CURSE to save text under a window. (v0.12)
+
+	Be nice to have make targets for distribution masters. (v0.12)
+	(which are directories rather than disks)
+
+	Files with .sp extension should be typed as Spectrum.  (v0.6)
+	Really ought to try to automatically type files based on
+	their extension.  Should be possible to extend list. (v0.12)
+
+	DEMO version should have time limit (v0.9)
+	DEMO should maybe only be runnable from its own disk. (v0.9)
+
+	Maybe should untag files as they are copied. (v0.6+)
+
+	Need Print:  in Dirs, print tree; in Files, print current
+	dir; in View, print the file contents. (v0.6+)
+
+    	Shipper ought to read a file of source, destination file
+	pairs rather than assuming a structure. (v0.7+)
+
+	Shipper would benefit from menus, visual interface, and the
+	ability to print disk and mailing labels. (someday) (v0.7+)
+
+	Look into Unix/Xenix version.  (v0.5+)
+	Look into Mac and Apollo compatibility. (v0.4)
+
+	If file is typed as [ascii?] and appears to be binary, just
+	beep and wait for user to tag it with a type. (v0.3)
+	[This may be a bad idea.]
+
+	[Look into creating help and manual from same source.] (v0.2)
+
+	Try to eliminate snow on CGA screens (v0.2)
+
+	Be nice to have command to go and determine type of all the 
+	files.  (probably in directory and file menus; dir applied
+	recursively as usual.) (v0.1)
+
+	Running under Concurrent DOS you get a blank screen.  Need to
+	add BIOS version of screen driver. (v0.3)
+
+
+=====================================================================
+DONE:
+=====================================================================
+
+VERSION 1.00	released 890221
+
+(1.00)	Check dates and diff contents on ./as/* to make sure we're in
+	sync.
+
+(1.00)	Storage gets fragmented when viewing large files.  (v1.0)
+	allocate a large buffer statically.
+
+(1.00)	When out of memory allocating a Dir node, check for unused
+	dir trees that might be deleted.
+
+(1.00)	Consider allocating Dirs off a free list.
+
+
+VERSION Beta 0.32  released 890108
+
+(v0.32)	change ALPHA -> BETA on startup screen
+
+(v0.32)	merge CUV stuff.
+
+
+VERSION Beta 0.31  released 881205
+
+(v0.31)	Length of a converted file reported as 0 if
+	converted from Idris before reading DOS disk.
+	[Wasn't closing.  May have caused other oddities as well.]
+
+
+VERSION Beta 0.30  released 881205
+
+(v0.30)	Set version to Beta 0.30
+
+(v0.30)	Merge in new changes. 
+
+(v0.30)	Stub for CSS conversion (cuvdo()).
+
+
+VERSION Alpha 0.24  released 881114
+
+(v0.24)	Fail gracefully when out of memory. (v0.23)
+
+(v0.24)	Make sure old directory tree is deleted BEFORE re-reading a
+	drive (v0.23)
+
+
+VERSION Alpha 0.23  released 881107
+
+(v0.23)	Merged in correct stuff in as/
+
+(v0.23) Corrected vertical spacing on first page of brochure.
+
+
+VERSION Alpha 0.22  released 881031
+
+(v0.22)	Need to be able to abort a Write with Esc. (v0.20)
+
+(v0.22)	Copying dir from . to A:, the top-level files get written but
+	are not displayed.  Single files, however, display ok.  (v0.21+)
+	[Bug in the treatment of subdirectories.]
+
+(v0.22)	Working from B, Idris in A, typed New.  Tried to put the new
+	directory on A. (v0.21) [see next item.]
+
+(v0.22)	Running from drive B, input C, output F, no disk in B; tries
+	to read B (for verify) [due to 'B' == 'C' - 1] (v0.20)
+
+(v0.22)	When the current drive is "." the drive shown for Dos should
+	be the drive "." is on.
+
+(v0.22)	"Out of space" during write with 2MB left.  Trying again
+	works. [needs to report system error message]  (v0.20)
+
+(?)	Writing DOS from D to B:  Output files contain zeros (v0.18)
+	[=== I can't reproduce this ===]
+
+(?)	Writing DOS from D to B:  names not keeping up the third time
+	(v0.18) [=== I can't reproduce this; may have to do with the
+	confusion caused when the first file is a subdirectory. ===]
+
+(?)	Seemed to write all files in a directory, not just the tagged
+	ones.  (v0.20)	[=== Can't reproduce ===]
+
+VERSION Alpha 0.21  released 881025
+
+(v0.21)	Need a command to create a directory (New) (v0.18)
+	[also added wgetch, wgetstr to CURSE.C]
+
+(v0.21)	Updated graphsp, do17, dtof, jcampdo, krecsw1 (v0.20)
+	[jcampdo no longer writes "##END=" at end of file]
+
+(v0.21)	Thick lines for labels.			    (v0.20)
+	Enlarge brochure 120%; 2.5" top margin.
+	About:  add phone #:  (203) 762-1155
+	License:  add address & phone at bottom.
+	          capitalize version SP
+
+(v0.21)	Jcamp write scrambles date, beeps on view.  (v0.20)
+	[check for close() in jcampdo]
+
+VERSION Alpha 0.20  released 881017
+
+(v0.20)	Improve error reporting:  classify hardware errors. (v0.18+)
+
+(v0.20)	[Call dNew when opening output file] (v0.6)
+
+(v0.20)	Check file dates & .OBJ sizes (v0.19)
+	[as/{do17,dtof,jcampdo,jchdr2,krecsw1}.c out of date]
+
+(v0.20)	Check flags:  switch to full optimize (v0.19)
+
+(v0.20)	Add "make clean" target; rebuild all objects with current
+	flags. (v0.19)
+
+(v0.20)	Try EXEPACK <src> <dst> to compactify executables. (v0.19)
+	[Note that debugger won't work on packed objects]
+
+(v0.20)	Read: update bottom line only when directory changes. (v0.19)
+
+(v0.20)	Reading an Idris disk on a Leading Edge gets the "Dos Disk?"
+	error message [BIOS returning junk for count]  (v0.19) 
+	[Patch sent by phone 881006]
+
+(v0.20)	When selecting a drive, if previous contents was "." or
+	Idris, re-read. (v0.19)
+
+VERSION Alpha 0.19  released 881003
+
+(v0.19) Eliminate the cursor (v0.18+)
+
+(v0.19)	Install updated routines in AS and AS/PEDM (v0.18+)
+
+(v0.19)	Speed up Write by using read/write instead of fread/fwrite
+	(v0.18+)
+
+(v0.19)	Correctly report hardware errors (v0.18)
+	[There appears to be a BIOS or hardware problem:  some errors
+	 simply aren't detected!]
+
+(v0.19)	DOS file view gets confused if the first item in a directory
+	is a subdirectory--it shows up in the files sometimes. (v0.18+)
+
+(v0.19)	Speed up Read by using DOS directory info instead of calling 
+	stat. (v0.18)
+
+(v0.19)	DOS Write operation needs to show destination file (v0.18+)
+
+(v0.19)	Copying DOS directory tree from A: to D: causes "bogus read"
+	abort (which comes from the Idris stuff!).  (v0.18+)
+
+(v0.19)	Check window width in waddch and don't wrap. (v0.18)
+
+(v0.19)	B\\ problem still there.  Redundant \ when no O command
+	given.  (v0.18)
+
+(v0.19)	Up arrow in Binary mode dups the top line (v0.18)
+
+(v0.19)	Remove Spectrum option from DOS Files (v0.18)
+
+(v0.19)	Page up/down in Binary mode goes by 1000 instead of 100. (v0.18)
+
+VERSION Alpha 0.18  released 880926
+
+(v0.18)	Read drive after selecting it (if not read before). (v0.17)
+
+(v0.18)	Need to check for write-protect or missing disk on output;
+	otherwise DOS will choke on it.  (v0.1)
+	[=== doesn't report error yet ===]
+
+(v0.18)	More default path problems:  B:\\... gets used for output
+	path when running from B drive. (v0.16)
+
+(v0.18)	Label for Select menu in Dos should be DOS drive, not Output
+	Drive. (v0.17)
+
+(v0.18)	Need to clean up bottom line after read or write. (v0.17)
+
+(v0.18)	Remove bogus call to fputs from jchdr1.c
+
+
+VERSION Alpha 0.17  released 880919
+
+(v0.17)	After using RD7 for a while, then exiting, both drives get
+	into a state where they can't find a sector.  Reset clears
+	it. (v0.16) [I HOPE this one's fixed!]
+
+(v0.17)	Put pathname of file being written on bottom line. (v0.7+)
+	[REJECT] [Or update view and hilite the file.]
+	[REJECT] Put status in the center view while reading (v0.7+)
+
+(v0.17) A, B, J, S in Idris Dir view don't tag with type. (v0.16+)
+
+(v0.17)	Directory (subdir? of '.') sometimes doesn't get updated.
+	(v0.16) [I hope I got this!]
+
+(v0.17)	Change printf to errorPrintf in as/*.c (v0.16)
+
+(v0.17)	Need to make sure of default path:  B:\\... gets used for JCAMP
+	header (possibly when specified in env. variable) (v0.16)
+
+(v0.17)	Merge in Data Manager routines (v0.16)
+
+(v0.17)	IS goes into limbo; I<space over to Select><CR> works. (v0.16)
+	[Due to presence of Spectrum!  Ascii, etc. also bomb.  Change
+	Select to Drive.  Also a bug in the A, B, S, J menu entries
+	in the directory views was fixed.]
+
+(v0.17)	Select output dir. and write to it with no previous Read
+	hangs (v0.16)
+
+(v0.17)	Need to show ALL of JCAMP header path.  Adjust output dir. to
+	follow it immediately.
+
+(v0.17)	Page after Contents in manual should not say "Contents" at
+	the top. (v0.15)
+
+(v0.17)	Need magnified labels & manual for reduction. (v0.15)
+
+(v0.17)	Data Manager files are BINARY (v0.16)
+
+
+VERSION Alpha 0.16  released 880906 to be mailed Wed 9-7
+
+(v0.16)	Need to handle errors better in general:  DON'T exit. (v0.6+)
+	[a start, anyway.  Idris errors don't hang.]
+
+(v0.16)	Extensions:  .sp (idris) -> .SPI (binary), .SP (data manager)
+	.DX (Jcamp) (v0.15)
+
+(v0.16)	Assorted edits to manual. (v0.15)
+
+(v0.16)	Assorted edits to order form and brochure. (v0.15)
+
+(v0.16)	Need a TSR to print Hercules graphics. (v0.15)
+
+(v0.16)	Downarrow in About puts a bogus char. on the screen. (v0.15)
+	[Actually fixed several problems in scrolling help screens.]
+
+(v0.16)	JCAMP and Data Manager files were being written in binary
+	mode. (v0.15+)
+
+(v0.16)	Bug:  Convert comp1.sp to Jcamp on B, view, page down, arrow up. 
+	Stops at "date" line. (v0.15)
+	[Had to do with blank lines in files with no CR's]
+
+(v0.16)	View .sp files as spectra when their type is ? (v0.15)
+
+(v0.16)	The default conversion for .sp files is datamanager (i.e.
+	Spectrum and DataMgr are mutually redundant.) (v0.15)
+
+(v0.16)	Edits to jcutils.c, graphsp.c (v0.15)
+
+(v0.16) Reverse-video the << >> flags. (v0.15)
+
+(v0.16)	Selecting JCAMP header wipes out DOS drive name on bottom line.
+	(v0.15)
+
+
+VERSION Alpha 0.15  released 880829
+
+(v0.15)	Shipper's default drive should be B: (v0.14)
+
+(v0.15)	Add DataManager menu items.  (v0.14)
+
+(v0.15)	There were some anomalies in scrolling 		(v0.14+)
+	Help still slow;  Text won't view past 64K; 
+	page up/down scrambles file & dir views.
+
+(v0.15)	Delete Dir, File, etc. menu items from Dir and File views,
+	relying purely on << and >>.  Display these in the label line
+	[use screen dscr. structure in rd7.c] (v0.14)
+
+(v0.15)	Writing to an empty directory which is a subdir of . (not D:)
+	dies with a divide by zero. (v0.14)
+
+(v0.15)	The demo distribution disk should include an order form (v0.11)
+	(at least, the order form exists: .../doc/order.rd7)
+
+
+VERSION Alpha 0.14  released 880825
+
+(v0.14)	Shipper would be faster if it read the entire disk image
+	into memory at the beginning. (v0.7+)
+
+(v0.14)	Shipper doesn't seem to center the customer name right. (v0.13)
+
+(v0.14)	Update manual; type in brochure and order form (v0.11)
+	Manual needs to describe installation of MSHERC (v0.13)
+
+(v0.14)	Views ought to be smarter about updating -- sometimes you
+	merely scroll or change highlighting. (v0.6+)
+
+(v0.14)	Executable files should ALL be called "rd7.exe",
+	distinguished only by what directory they're in. (v0.13+)
+
+(v0.14)	Add routines to CURSE for scrolling a window (v0.13)
+
+(v0.14)	Can't select subdirectories of "." as the output path.
+	(v0.13+; noticed earlier but not fully understood)
+
+(v0.14)	Retain last-modify date of files copied with rd7 (v0.12)
+
+(v0.14)	Shipper:  flags don't work; hangs waiting for character
+	if stdin redirected.  (v0.13)
+	[input file now must be specified on command line]
+
+
+VERSION Alpha 0.13  released 880808
+
+(v0.13)	Fix cp to retain last-modify date of files it copies (v0.12)
+
+(v0.13)	Help view should stop when you hit bottom (v0.11+)
+	END key should leave a full screen. (v0.12)
+
+(v0.13)	License is for single keyboard, not user. (v0.12)
+
+(v0.13)	Re-organize directories:  ...rd7/{as,ss,lib,doc} (v0.12)
+
+(v0.13)	dFixName should attach the "clobber" count to the filename,
+	not the extension (v0.12)
+
+(v0.13)	Disabled menu items in demo version should exist, but
+	show a "this feature not available" help screen. (v0.11)
+
+
+VERSION Alpha 0.12  released 880803
+
+(v0.12)	Need stubs for jcampdo, datamdo, graphsp. (v0.9)
+	CHANGED in ...\SP: makefile, graphsp.c
+	datamdo doesn't seem to exist yet, so no stub.
+
+(v0.12)	View croaks on files > 64K, because we're not using the 
+	huge model.  Need to be more clever.  (v0.4-)
+
+(v0.12)	Help lines on Idris Files menu missing first char. (0.10)
+
+(v0.12)	DOS File menu brings up Idris File's help (0.11)
+
+(v0.12)	Some menus have ? and / more than once (0.11)
+
+
+VERSION Alpha 0.11  released 880729
+
+(v0.11)	Need to gracefully handle filename conversion. (v0.3)
+
+(v0.11)	Read DOS files in binary mode for viewing even when text (v0.10+)
+
+(v0.11)	Save screen on entry, restore on exit (v0.10)
+
+(v0.11)	Save current working dir. on entry, restore on exit (v0.10)
+
+(v0.11)	Add environment variable with fields for input drive,
+	output drive/path, and jcamp header path. (v0.4+)
+
+(v0.11)	Command-line arguments that duplicate the env. variable.
+
+(v0.11)	Write with no source or destination selected blows up. (v0.9)
+
+
+VERSION Alpha 0.10  released 880719
+
+(v0.10)	Need 3 versions:  AB, SP, DE.  Determine which by
+	compile-time defines  -DAB -DSP, -DDE (v0.9)
+
+(v0.10)	Eliminate arrow chars (ESC and ^Z) from screen. (v0.9+)
+
+(v0.10)	Versions will be RD7 version AB x.y and SP x.y (v0.4)
+
+(v0.10)	[REJECT] The command to show dates in the File view could be  
+	dAtes (except A already tags as Ascii).  (v0.8a)
+
+(v0.10)	Files:  need to be able to view by Mode or Date. (v0.7)
+	[Always show date, make mode a single char.]
+
+(v0.10)	[REJECT] Maybe a Defaults menu would handle both default file 
+	mode and file mode/time display. (v0.7+)
+
+
+VERSION Alpha 0.9  released 880623
+
+(v0.9)	If a drive is selected for input, it must not be selected for
+	output (and vice versa).  (v0.6+)
+
+(v0.9)	Need to update current DOS directory after a write.  (v0.6)
+	[done, but it's inefficient]
+
+(v0.9)	In main menu, arrows beep while I and D transfer to their
+	respective views. (v0.8a)
+
+(v0.9)	Hex view should cut off at real end of file instead of end of
+	sector.  (v0.8a)
+
+
+VERSION Alpha 0.8a  released 880615
+
+(v0.8a)	Remember last tree read on each drive.  (v0.8+)
+
+(v0.8a)	Makefile and shipper.c missing from release disk. (v0.8)
+
+(v0.8a)	Bottom line should have Output directory, not DOS drive. (v0.8)
+
+
+VERSION Alpha 0.8  (Released 880613)
+
+(v0.8)	Need Ctl-C handler to put the disk table back the way we
+	found it.  (v0.6+)
+
+(v0.8) 	Need to be able to set default mode for files (v0.7)
+	[May be sufficient to add modes to Dirs menu, BUT to do this
+	 we need to change Select -> Drive to avoid conflict.  Alt.
+	 is to put these in a sub-menu:  C for Conversion.]
+
+(v0.8)	Change "MS-DOS" to "DOS" (v0.7+)
+(v0.8)	Someone is eventually going to wonder why you can't use RD7
+	to move DOS files around. (v0.5+)
+
+(v0.8) 	Need utility to copy an executable file, substituting a
+	given customer name for a given fixed string.  (This would
+	implement the protection-by-customization scheme.) (v0.2)
+
+(v0.8)	The Shipper program wants to get the customer name and serial
+	number from a file. (v0.7)
+
+(v0.8)	Need more drives (E, F at least) (v0.7+)
+
+(v0.8)	Bottom line should have input dir, output dir, Jcamp file (v0.6)
+	Move up the frame to do it.
+
+(v0.8)	Blank the dir/file view while reading, and put "READING" 
+	in the center (v0.7)
+
+(v0.8)	DROPPED -- update file count, total size instead (faster)
+	Highlight the name of a file while copying it. (v0.4)
+	Update the directory tree display while reading. (v0.4)
+
+(v0.8)	Default in MS-DOS should be current DIR, not DRIVE.  Select
+	menu item '.'  Much faster!  (v0.6+)
+
+
+VERSION Alpha 0.7  (Released 880522)
+
+(v0.7)	Need command to re-read DOS disk after swapping. (v0.6)
+	READ.
+	
+(v0.7)	Jcamp header is a FILE, not a directory.  Select from DOS
+	file menu. (v0.6)
+
+(v0.7) 	First 4 characters in hex view aren't getting cleared. (v0.6)
+	(actually anything on first line was sticking around.)
+
+(v0.7)	Doesn't seem to change drives to the new Working drive. (v0.6)
+	[see _dos_getdrive, _dos_setdrive fns.  chdir doesn't change
+	drive!  Also see _splitpath for parsing the drive.]
+
+(v0.7)	Need to show filename during view.  Top border?  (v0.6)
+
+(v0.7)	Menus should hilite the title when they come up. (v0.6)
+
+(v0.7)	Rationalize arrows:  				   (v0.6+)
+	   <- from dirs: other OS.  from view:  files
+	   -> from files: view      from view:  (ascii/bin)
+	   D, F, A, B in View mode
+
+(v0.7) 	Need better handling for the various disk statistics. (v0.5+)
+
+(v0.7)	Should be able to switch between ascii and binary views
+	without having to change the file type.  (v0.6)
+
+(v0.7)	Help should be smarter (i.e scrolling) and more extensive. (v0.2)
+
+(v0.7)	Should the two file views be called Text and Hex as distinct 
+	from Ascii and Binary, which are tagging operations? (v0.6+)
+	NO!  Leave it.
+
+
+VERSION Alpha 0.6  (Released 880510)
+
+(v0.6)	Need to delete the old directory tree when reading a new
+	disk. (v0.4)
+
+(v0.5) 	Jcamp header directory needs to be selected from within DOS
+	view, since that's where you have a path.  (v0.5+)
+
+(v0.6)	Text view needs to wrap or truncate long lines. (v0.5+)
+
+(v0.6?)	It's possible to get a negative number of tagged bytes by
+	untagging (caused by Write).  (v0.5)
+
+(v0.6)	Move file conversion routines into their own module. (v0.5+)
+
+(v0.6)	Try horizontal stripes and no overlap in the logo (v0.5)
+
+(v0.6)	Scrolling down to the end of a file in binary mode makes line
+	up stop working (page up still works). (v0.5)
+
+(v0.6)	Speed up view mode (v0.4)
+
+(v0.6) 	Don't show drive letters above B (Idris) or numbers above 1
+	(DOS), since 2 and 3 are floppies. (v0.5)
+
+(v0.6) 	Sometimes displays a partial tree (v0.5)
+
+(v0.5)	It should not be possible to scroll something shorter than a
+	screenfull (i.e. past EOF). (v0.4)
+
+
+VERSION Alpha 0.5  (Released 880502)
+
+(v0.5) 	Drive selections should maybe be 0 1 2 3 (familiar to 7000
+	users) (v0.4)
+
+(v0.5)	There is sometimes garbage at the end of an ASCII file.  Look
+	for an end-of-file byte (EOT?) (v0.4)
+
+(v0.5)	Enter in View(ascii) mode hangs. (v0.4)
+
+(v0.5)	Take '/' out of top menu -- redundant. (v0.4)
+
+(v0.5)	Hex view needs single-line scroll (v0.4)
+
+(v0.5)	If you do a second Read command the status line values don't
+	get zeroed, and several other things probably don't get fixed
+	up either.  (v0.4)
+
+(v0.5) 	[internal revision] Use same tree structure (with variants)
+	for DOS, IDRIS, and Help [scheduled for v0.5] (v0.3)
+
+(v0.5)	Totals don't change correctly after tag + untag. (v0.3)
+	[I can't seem to reproduce this!]
+	Totals don't get cleared before a read.
+
+[obs]	While reading, should blank file & directory windows.  Maybe
+	display running totals?	(v0.2)
+
+(v0.5) 	Try to fix the jaggies in the logo.  Maybe use stripes.
+	Vertical stripes might work, i.e. | |
+					    | |
+(v0.5)	Going to help from the File menu hangs. (v0.4)
+
+(v0.5)	Spectrum and JCAMP only apply to .SP files. (v0.2)
+	Verify ".sp" extension before tagging. (v0.4)
+
+(v0.5)	ought to be able to change current MSDOS directory (using an
+	MSDOS window) Target drive also needs to be selectable. (v0.1)
+	<STARTED but not functional>
+
+(v0.5) 	Add ability to set Jcamp header path (presently in menu but
+	not implemented) (v0.4+)
+
+
+VERSION Alpha 0.4  (Released 880328)
+
+(v0.4)	page up, page down, home, end should exist (v0.1)
+
+(v0.4)	need view file command in file menu (v0.1)
+	Non-ascii files should be viewed in hex. (v0.2)
+
+(v0.4)	Use [ascii?] when type of a file hasn't been specified yet.
+	Treat as ascii for read. (v0.3)
+
+(v0.4)	Read command gets garbage after 4K.  Large files obviously
+	don't work. (v0.3)  [Fix in but untested: v0.4]
+
+(v0.4*)	Default mode of ascii is OK; display creation date in that
+	slot until mode is changed. (v0.2) [* superceded by "ascii?"]
+
+
+VERSION Alpha 0.3  (Released 880308)
+
+(v0.3)	Protect by customizing the start-up screen with customer name.
+
+(v0.3)	need commands to write current file, current directory (v0.1)
+	(i.e. W(rite) in file and dir menus)
+
+(v0.3) 	Copy gets completely wrong stuff (but the right number of
+	bytes) -- wasn't setting the ptr to start of buffer.
+
+(v0.3)	Use a less cluttered start-up screen with an offer of
+	help rather than a full help screen.
+
+(v0.3)	Tagging in the directory window should NOT move down a line.
+
+(v0.3)	Name should be RD7IR (there will be several versions
+	eventually, with different conversions) [name currently RD7]
+
+(v0.3)	Delete the "block ... inode ..." report while reading.
+
+(v0.3)	Top line should display total tagged bytes (probably total 
+	bytes and file counts as well)
+
+(v0.3)	Mode change (Binary etc.) should tag the file as well.
+
+(v0.3)	Add Spectrum mode.  
+
+(v0.3)	Default drive should be A:
+
+(v0.3)	Directory trees need lines, a la Xtree
+
+(v0.3)	Empty directory should say "no files" in file window, and
+	disable the right arrow key.
+
+
+VERSION Alpha 0.2 (released 880215)
+
+(v0.2)	scrolling doesn't work
+		(I think this is now fixed, but don't have a disk
+		 with enouth files to test it with.)
+
+(v0.2)	write doesn't work
+
+(v0.2)	tagging a file should move cursor to the next one if present.
+
+(v0.2)	need main menu entry to Select drive
+
+(v0.2)	version: ALPHA 0.2
+
+(v0.2)	help: untag doesn't have anything to do with mistakes
+(v0.2)	help: ascii etc. set file's type for conversion on write
+(v0.2)	help: describe tagging directories
+(v0.2)	help: should do something everywhere (i.e. ? should work)
+
+(v0.2)	arrow in main menu should check to see if disk has been read
+
+(v0.2)	L and R arrows (and /) should highlight FIRST selection in menu
+	(actually, they should reset the selection and display the
+	 menu's help string.)
+
+
+=====================================================================
+
+Initial design notes:  (for version 0.1)
+--------------------
+
+Notes on filer -- a program to translate IDRIS disks to MSDOS.
+
+
+Screen layout:
+
+
+	---------banner / status line----------------------------
+	|     menu line                                         |
+	|     help string line                                  |
+	|-------------------------------------------------------|
+	|			|				|
+	|			|				|
+	|			|				|
+	|			|				|
+	~	directory	~	contents		~
+	|			|				|
+	|			|				|
+	|			|				|
+	|			|				|
+	|			|				|
+	------------------------------------------------time-----
+
+Commands:
+(v0.1)	sp/tab		next menu item
+(v0.1)	bs/backtab	prev menu item
+(v0.1)	enter		execute menu item
+
+(v0.1)	<-  ->		switch window
+(v0.1)	^   v		move highlight up and down in window
+	home, end	beginning and end of list
+	pg up, down	window-full up, down
+
+(v0.1)	Tag  		in dir. window, tag all contents
+(v0.1)	Untag
+
+(v0.2)	Write		copy file/tree to current directory
+			all tagged files, if any.
+			in dir. window, preserves tree structure
+
+changed	Dest		assign destination name
+
+changed	Show		show subdirectories
+changed	Hide		hide subdirectories
+
+

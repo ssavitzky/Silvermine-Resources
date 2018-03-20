@@ -1,0 +1,109 @@
+\documentstyle[bezier]{article}
+\pagestyle{empty}
+
+\thicklines
+\input{rd7}
+
+\textwidth 7in
+\textheight 8in
+\topmargin 0pt \headheight 0pt \headsep 0pt 
+\oddsidemargin 0in \evensidemargin 0in
+\parsep 0pt
+
+\newcommand{\R}{\hrulefill}
+
+\begin{document}
+
+\vspace{0.5in}
+
+% Coordinate calculations.  Isn't arithmetic in TeX fun??  No.
+%
+% We want 4x1.5, which in points is 288 * 108
+%
+%	use offset to start the outer box at 0,0
+%	so inner box is at LS, LS
+%
+\newcommand{\TW}{288}		% Total Width
+\newcommand{\TH}{104}		% Total Height
+\newcommand{\EB}{8}		% Empty Border
+\newcommand{\LS}{2}		% Line Spacing
+\newcommand{\TBH}{15}		% Top Box Height
+  \newcounter{bw}\setcounter{bw}{\TW}
+  \addtocounter{bw}{-\EB}
+  \addtocounter{bw}{-\EB}
+\newcommand{\BW}{\value{bw}}	% Box Width		= TW - 2*EB
+  \newcounter{bh}\setcounter{bh}{\TH}
+  \addtocounter{bh}{-\EB}
+  \addtocounter{bh}{-\EB}
+\newcommand{\BH}{\value{bh}}	% Box Height		= TH - 2*EB
+  \newcounter{ibw}\setcounter{ibw}{\BW}
+  \addtocounter{ibw}{-\LS}
+  \addtocounter{ibw}{-\LS}
+\newcommand{\IBW}{\value{ibw}}	% Inner Box Width	= BW - 2*LS
+\newcommand{\IBX}{\LS}		% Inner Box X Position	= LS
+  \newcounter{tby}\setcounter{tby}{\BH}
+  \addtocounter{tby}{-\LS}
+  \addtocounter{tby}{-\TBH}
+\newcommand{\TBY}{\value{tby}}	% Top Box Y Position	= BH - LS - TBH
+  \newcounter{bbh}\setcounter{bbh}{\TBY}
+  \addtocounter{bbh}{-\LS}
+  \addtocounter{bbh}{-\LS}
+\newcommand{\BBH}{\value{bbh}}	% Bottom Box Height	= TBY - 2*LS
+\newcommand{\BBY}{\LS}		% Bottom Box Y Position = LS
+%
+\newcommand{\DiskLabel}[1]{%
+\begin{picture}(\TW,\TH)(-\EB,-\EB)
+ \put(0,0){\framebox(\BW,\BH){}}
+ \put(\IBX,\TBY){\framebox(\IBW,\TBH)[l]{\slogo}}
+ \put(\IBX,\TBY){\makebox(\IBW,\TBH)[r]{Version #1\ }}
+ \put(\IBX,\BBY){\framebox(\IBW,\BBH){}}
+ \put(\IBX,\BBY){\makebox(\IBW,\BBH)[tl]{\makebox(0,20){}\ {Serial Number: }\R\ }}
+ \put(\IBX,\BBY){\makebox(\IBW,\BBH)[tl]{\makebox(0,40){}\ {Licensed To: }\R\ }}
+ \put(\IBX,6){\makebox(\IBW,0)[b]{\small \copyright\ 1988 by 
+			Silvermine Resources, Inc.  All rights reserved.}}
+\end{picture}%
+}
+
+% \renewcommand{\R}{}		% no rule after serial number
+\setlength{\parindent}{0pt}\setlength{\baselineskip}{0pt}
+\newcommand{\VS}[1]{\raisebox{0pt}[104pt][4pt]{#1}}
+
+\VS{\DiskLabel{\hspace{.8in}}}\hfill\\%
+\VS{\DiskLabel{\hspace{.8in}}}\hfill\\%
+\VS{\DiskLabel{\hspace{.8in}}}\hfill\\%
+\VS{\DiskLabel{\hspace{.8in}}}\hfill\\%
+
+
+
+
+%%% OLDER JUNK %%%
+
+%\DiskLabel{AB 1.1}
+
+% \vspace{0.5in}
+% \DiskLabel{SP 1.1}
+
+% \vspace{1in}
+
+% \DiskLabel{Beta 1.0}
+
+% \vspace{0.5in}
+%\DiskLabel{\hspace{.5in}}
+
+% \vspace{0.5in}
+% \DiskLabel{AB 1.1}
+
+% \vspace{0.5in}
+% \DiskLabel{SP 1.1}
+
+%
+% \begin{picture}(150,65)
+% \put(1,1){\framebox(148,63){}}
+% \put(3,47){\framebox(144,15)[l]{{\large\bf\sf\ rd7}\hfill Version #1\ }}
+% \put(3,3){\framebox(144,41)[tl]{\makebox(0,10){}\ {\small Serial Number: }\R\ }}
+% \put(3,6){\makebox(144,0)[b]{\footnotesize \copyright\ 1988 by 
+%				    Silvermine Resources, Inc.}}
+%
+
+
+\end{document}

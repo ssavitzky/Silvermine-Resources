@@ -1,0 +1,5 @@
+rd7sp helpsp convert dirs disk view  coops trees ..\lib\curse ..\lib\menu
+/NOI /SE:256
+
+..\as\sp.lib ..\as\pedm\dm.lib ..\as\cuv\uv.lib graphics.lib  
+

@@ -1,0 +1,28 @@
+README for RWi  Version 0.06  89 Sep 27
+
+    See RELEASE.NOT for the complete set of notes.
+
+MAJOR ADDITIONS & CHANGES:
+
+    This is a partial release; just the things I've changed since
+    the last one.  Be sure to keep your changes to DISK.C, etc. until
+    we figure out how to do things right.
+
+    With any luck, we can now read HD disks on AT's.  (Of course, I
+    said that last time!)
+
+    Media type in the Drive menu will either go away or get changed
+    to something more useful (in the next release).  The Drives menu
+    is changed but the Media Type menu isn't yet.
+
+
+KNOWN BUGS:
+
+    Files bigger than 64K aren't viewed correctly.  Read, and hence
+    copy, does work.  I'm in the process of fixing this; the code (in
+    Viewer.c) is presently commented out.  (Uncomment the #define at
+    the front of viewer.h to try it.  It won't work for iRMX files.)
+
+    Doesn't write iRMX disks.
+
+

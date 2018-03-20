@@ -1,0 +1,354 @@
+=====================================================================
+=                          RELEASE NOTES			    =
+=====================================================================
+
+----	---------------------
+DONE:	Version 0.20   900115
+----	---------------------
+
+
+BUGS:
+
+0.20	A bug seems to have crept into writing. (0.19)
+	[Turned out to be a seek bug: lose if sec wanted == current]
+	[Also a write bug -- xNxtBlk screwed up allocation at EOF]
+
+	A file with enormously long lines causes trouble on view.
+	[really ought to wrap lines rather than truncate]  (0.13)
+
+	^Break doesn't always work. (0.03)
+
+TO DO:
+
+	Media type, Filesystem, and Volume info should be settable
+	from command line/environment.  Actually should combine all
+	these. (0.15)
+
+	Need to make labels and manual covers without rd7 logo.	(0.0)
+
+	Need a manual. (0.0) 		[SEND BILL FOR $1K]
+
+WISH LIST:
+
+	Orthogonal to version numbering is when to copy: always, if
+	newer or nonexistant, or if newer only.  (0.15)
+
+	Need more control over version creation:  rename new, rename
+	old, or replace old.  (0.14)
+
+	Be nice to be able to delete files.  (0.14)
+
+	Be nice if RAW could display formatted volume and fnode info.
+	Treat as file types, perhaps.	(0.12)
+
+	Consider using a list viewer for raw tracks. (0.03)
+
+	Ought to query the device drivers to find out which drives are
+	which types.  This may not work with DOS 3.1 or earlier; I'm not
+	sure. (0.02)
+
+	SHIPPER should be generic.  Remove dependency on version.h
+	and just make sure that the info tracks, or put it into	a
+	shipper.h.  Require that product name and directory be
+	specified (default product name to dirname.EXE). (0.03)
+
+	SHIPPER:  instead of taking a directory on hard disk, should
+	modify files in place on an already-copied floppy. (0.16)
+
+	On hard disks (at least), we should only look at directories
+	that are visible.  This would speed up the Read operation, 
+	and also prevent running out of memory reading the tree. (0.0)
+
+	Ability to show and hide subtrees, outline style. (0.0)
+	[Would permit current drive to come up instantly.]
+
+=====================================================================
+=                              DONE				    =
+=====================================================================
+
+----	---------------------
+DONE:	Version 0.19   900108
+----	---------------------
+
+0.19	If a short-form file fills up its extents, should restructure
+	to long-form, allocating an indirect block. (0.13)
+	[Probably still buggy]
+
+0.19	Media type doesn't track drive type. (0.17)
+
+----	---------------------
+DONE:	Version 0.18   891226  (Released via phoned-in patch)
+----	---------------------
+
+0.18	END in an Ascii view puts you in a state where up and down
+	arrows don't work.  Going to Binary and back fixes it. (0.16)
+
+----	-------------------------
+DONE:	(somewhere along the way)
+----	-------------------------
+
+?	If you read an iRMX disk in the To view but don't set the
+	Output path, you get an error when you try to write. (0.12+)
+
+?	Changing drive type, then Reading, hangs on AT.	(0.03)
+
+----	---------------------
+DONE:	Version 0.17   891218
+----	---------------------
+
+0.17	Move modules that can be shared with RD7 to ../lib (0.15+)
+
+0.17	Need a command to search a disk for the Fnode file (0.15)
+	[Actually better to do it automatically]
+
+0.17	Some of the map locations are wrong. (0.16)
+
+----	---------------------
+DONE:	Version 0.16   891211
+----	---------------------
+
+0.16	When moving in Dir view, should not update File view if there
+	are keystrokes still to be read (0.03)
+
+0.16	Would be more convenient if going to Drives view from top
+	level hilited the FROM drive instead of current (to).  (0.14)
+
+0.16	Split large modules:  disk -> disk + raw; irmx -> irmx + irmxdir;
+	viewer -> viewer + filevr
+
+0.16	Use an indirect file for links: the command line was getting
+	too long.  Also, the /exepack option of the linker can be
+	used to save a step in the build.
+
+0.16	errorPrintf screen needs Quit option. (0.03)
+	[May want to be full-bore screen and menu]
+
+0.16	Should not try to read track 0 if no compaticard. (0.15)
+
+0.16	When untagging a directory, sub- and super-directories don't
+	get unmarked in the view. (0.14)
+
+0.16	LDf50e41 contains a LONG file.  It doesn't read completely. (0.14)
+    	[Problems due to bad sectors, not LONG file format]
+
+0.16	Doesn't change media type when you change drive type (0.13)
+
+0.16	Read errors in iRMX code cause a hang. (0.12+)
+	[Has nothing to do with 48-tpi or bad format: ANY error seems
+	to leave kbd locked up, including disk not ready.]
+
+----	---------------------
+DONE:	Version 0.15   891204
+----	---------------------
+
+0.15	Need a way to tag files as ascii or binary. (0.14)
+
+0.15	View ought to default to binary if the file appears to be
+	non-ascii. (0.14)
+
+0.15	RAW block numbers appear to be off. (0.14)
+	[kludged to work for iRMX86 only]
+
+0.15	Many of the default volume specs have incorrect map addresses. 
+	(0.14)
+
+----	---------------------
+DONE:	Version 0.14   891128
+----	---------------------
+
+0.14	There is definitely a tree-allocation problem. (0.13)
+	[needed ++inUse in cSetDrive]
+
+0.14	Still some seek problems. (0.13)
+	[fixed by brute force version of xseek]
+
+0.14	Shouldn't default drive E: to compatiCard. (0.13)	
+
+----	---------------------
+DONE:	Version 0.13   891120
+----	---------------------
+
+0.13	Need to write, as well as read, iRMX-86 disks. (0.0)
+
+0.13	Writing to a short (< 1 page) directory, the dest. file view
+	isn't updated on the screen. (0.12)
+
+0.13	Home & End in tree containing output dir are broken because
+	treeVr.root is not the real root of the tree. (0.12+)
+
+0.13	seeking has serious problems. (0.12)
+	[problems at sector boundaries, also a signed-char. bug]
+
+----	---------------------
+DONE:	Version 0.12   891113
+----	---------------------
+
+0.12	Should hilite current output directory when first switching 
+	to the view that it's in. (0.0)
+
+0.12	Required formats:  48tpi 41 es 200/500 files
+			   96tpi 41/3 es 200/2 files   (0.11)
+
+0.12	Must be able to change ALL volume format parameters.  Use
+	iRMX format command for terminology. (0.03)
+
+0.12	Some sort of bug seeking in long files: view breaks but write
+	works ok. (0.11 and earlier)
+
+0.12	RAW is broken: new Viewer stuff doesn't handle tracks. (0.09)
+
+0.12	Files written with Write sometimes don't appear unless a Read
+	is done [thought I fixed that...] (0.11)
+
+0.12	Creating a directory after dest. disk is read hangs. (0.11+)
+
+
+----	---------------------
+DONE:	Version 0.11   891030
+----	---------------------
+
+0.11	End command in binary mode view of iRMX disk hangs. (0.09)
+	[related to the last line bug in ascii view.]
+
+0.11	Disk initialization needs dummy read after door is opened. (0.10)
+
+0.11	Some flaky behavior at EOF in binary mode view. (0.10+)
+
+----	---------------------
+DONE:	Version 0.10   891023
+----	---------------------
+
+0.10	End command in Ascii appears to pick up crud past end of file
+	[Now happens only if last line does not have a linefeed] (0.07)
+
+0.10	Disk.c has some compile warnings. (0.09)
+
+----	---------------------
+DONE:	Version 0.09   891016
+----	---------------------
+
+0.09	Viewing still broken (0.08)
+
+0.09	Re-reading a disk (Dir view) doesn't update the File view (0.09)
+	[Nor do a number of things]
+
+----	---------------------
+DONE:	Version 0.08   891005
+----	---------------------
+
+0.08	End command in Binary view hangs (0.07)
+
+0.08	Backspace while entering name for New directory hangs (won't
+	reboot w\ C-A-Del) (0.07)
+
+0.08	Write cmd. got a read error; file wasn't visible but was
+	there on re-Read; it had garbage at the *front*. (0.07)
+	[Garbage/short: File not getting closed properly after view??]
+	[Not visible: need to mark To view for update after write]
+
+0.08	The message about being unable to find the Output directory
+	is unclear, and probably should only be given if To is the
+	same drive as Output. (0.07)
+
+----	---------------------
+DONE:	Version 0.07   891002
+----	---------------------
+
+0.07	Remove file types, since iRMX and DOS use the same convention
+	for end of line.  (0.06)
+
+0.07	Separate media type and drive type in Drives view (0.05)
+
+0.07	AT drives don't work for HD disks. (0.03)
+	[Let's try *this* version!]
+
+0.07	File viewer is currently broken for large [64k+] files. (0.04)
+
+----	---------------------
+DONE:	Version 0.06   890927
+----	---------------------
+
+0.06?	AT drives don't work for HD disks. (0.03)
+	[Let's try *this* version!]
+
+----	---------------------
+DONE:	Version 0.05   890918
+----	---------------------
+
+0.05	Source and Destination -> From and To in all menus (0.04)
+	(in some cases some other menu items have to change.)
+
+0.05	Drives menu should hilite current drive in whatever view 
+	you got there from (source or destination) (0.04)
+
+0.05	Quitting after reading disks on an AT leaves BIOS in a bad
+	state that requires reboot to fix. (0.04)
+
+0.05?	AT drives don't work for HD disks. (0.03)
+	[Let's try *this* version!]
+
+0.05	RAW probably doesn't make enough track nodes. (0.03)
+
+----	--------------------
+DONE:	Version 0.04  890911
+----	--------------------
+
+0.04	AT drives don't work for HD disks. (0.03)
+	[experimental fix that didn't work]
+
+0.04	Use Drives view to change drive number for From and To views.
+	(0.03)
+
+0.04	Command-line options should be documented in on-line help
+	(0.03)
+
+0.04	Make sure ALL menus include a Quit option (0.03)
+
+0.04	There's a long delay before the "Reading" message comes up.
+	(While it tries to read fnodes.) (0.03)
+
+----	---------------------
+DONE:	Version 0.03  890821
+----	---------------------
+
+0.03	14-character filenames aren't null terminated. (0.02)
+
+BUGS:
+
+0.03	First line duplicated when scrolling in File or Ascii view:
+	PgDn, LnDn, PgUp, PgUp. (0.02)
+
+0.03	AT drives don't work at all. (0.02)
+	[Need to be able to specify density for iRMX]
+
+0.03	Need to have a view of drive defaults: file system, density,
+	#tracks, and controller type.  This could be used instead of
+	the drive select menu. (0.0, 0.02)
+
+----	---------------------
+DONE:	Version 0.02  890807
+----	---------------------
+
+0.02	Read iRMX-86 files. (0.0) -- for version 0.02
+
+0.02	Need to split the "Raw Disk" stuff out into a separate
+	program [called RAW for Read And Write?]. (0.0)
+
+0.02	Initialize drive info arrays from cmd line/environment (RWI).
+	     -d <drive-letter>[HAP][C]=<phys-drive#>
+	 	H = Hard / A = AT-type / P = PC-type
+	 	C = CompatiCard driver
+
+0.02	Reading on the inner tracks takes TOO LONG! (0.01)
+
+0.02	read D: in From, then A in To; go back to From and it's
+	damaged.  [inUse needed to be count, not boolean.]
+
+
+----	---------------------
+DONE:	Version 0.01  890725
+----	---------------------
+
+0.01	Read raw track data on iRMX-86 disks.
+
+

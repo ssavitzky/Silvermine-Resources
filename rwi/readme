@@ -1,0 +1,22 @@
+README for RWi  Version 0.20  90 Jan 15
+
+    See RELEASE.NOT for the complete set of notes.
+
+MAJOR ADDITIONS & CHANGES:
+
+    This is version 0.20, but you might decide to re-label it 1.00
+    It appears to be all present and working.
+
+    Attempts to reformat a short file into a long one if it runs out
+    of extents.  Superficially tested and appears to work.
+
+    Several bugs in the write code have been fixed.
+
+    The manual is in progress.
+
+
+KNOWN BUGS:
+
+    Viewing a binary file in ascii mode may be very slow.  The basic
+    problem is that it doesn't know how to handle very long lines.
+

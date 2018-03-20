@@ -1,0 +1,28 @@
+README for RWi  Version 0.14  89 Nov 28
+
+    See RELEASE.NOT for the complete set of notes.
+
+MAJOR ADDITIONS & CHANGES:
+
+    Writing on iRMX disks works, but is probably flaky.
+
+    Still more seek problems fixed.  This time, we're using a
+    brute-force approach using the same algorithm used for reading. 
+    This is more likely to be reliable.
+
+
+KNOWN BUGS:
+
+    The problems with errstr.fil are due to the fact that it contains
+    almost no linefeeds.  View doesn't like enormously long lines.
+
+    There are some crashes, possibly caused by switching densities or
+    possibly by some oddity in format.  files=50, es-41, 48tpi hangs
+    reliably.
+
+    There are almost certainly some boundary-value problems in
+    writing, and probably in seeking.
+
+    It only writes short-format files at the moment (no more than 8
+    contiguous pieces.)  This is OK if the disk you are writing to is 
+    initially empty.

@@ -1,0 +1,384 @@
+\documentstyle[bezier,12pt]{article}
+\pagestyle{empty} 
+
+\thicklines
+\setlength{\unitlength}{1.2pt}
+\input{rd7}
+%
+% Page Parameters (multiplied by 1.2 for 12pt---works better than magstep1)
+%
+\oddsidemargin 0in \evensidemargin 0in \topmargin 0.75in
+\columnsep 10pt \columnseprule 0pt 
+\marginparwidth 90pt \marginparsep 11pt \marginparpush 5pt 
+\ignore{ 
+ \topmargin 27pt \headheight 12pt \headsep 25pt \footskip 30pt 
+  \textheight = 43\baselineskip
+  \advance\textheight by \topskip
+  \textwidth 345pt \columnsep 10pt \columnseprule 0pt 
+}
+\headheight 0pt \headsep 0pt 
+\footheight 0pt \footskip 0pt 
+\textheight 8in \textwidth 6.55in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{document}
+
+\ignore{	%%%%%%% <<<<<
+  \setlength{\unitlength}{2pt}
+  \thicklines
+  \vspace{1in}
+  \begin{center}
+
+  \begin{picture}(140,85)
+  \put(1,1){\framebox(138,83){}}
+  \put(3,67){\framebox(134,15)[l]{\huge\bf\sl \raisebox{-4pt}{\llogo}\hfill ab/sp\ }}
+  %\put(3,67){\framebox(134,15)[l]{\huge\bf\sl\ rd\seven\hfill ab/sp\ }}
+  \put(3,3){\framebox(134,62){\logo}}
+  \end{picture}
+
+  \copyright\ 1988 by Silvermine Resources, Inc.
+  All rights reserved.
+
+  \end{center}
+  \newpage
+} 		%%%%%%% >>>>
+
+\section*{{\sl Introducing: \RD}} 
+{\sl NOW}, with \RD,
+\begin{quote}
+	you can
+\end{quote}
+Copy Perkin-Elmer 7000 Idris data to DOS using your PC
+\begin{quote}
+	Easily\\
+	Quickly\\
+	Conveniently\\
+	Without tying up your instrument computer!
+\end{quote}
+ 
+The two versions of \RD, Version \AB\ for Ascii or Binary data and
+Version \SP\ for Ascii, Binary, or Spectral data, are powerful, easy-to-use
+PC/MS-DOS utilities which allow an IBM PC or compatible clone to
+directly read and transfer data from 5 1/4 inch floppy disks written
+by Perkin-Elmer's 7000 series Professional Data Stations under the
+Idris operating system.  The utilities display the directories on the
+7000 disk in tree form and, in an adjacent window, the contents of
+each individual directory or subdirectory as it is selected in the
+directory window.  Individual files can be viewed in either Ascii or
+Binary form before transfer.  Files can be transferred individually or
+files and/or whole directories can be ``tagged'' and, with a single
+keystroke, written to any DOS disk or selected directory for further
+processing by programs such as spreadsheets or databases.
+ 
+In addition, \RD\ Version \SP\ recognizes spectral data in
+Perkin-Elmer's .SP file format.  Viewing one of these files produces
+a graphical display of the spectrum and a status report similar to
+that produced by the Perkin-Elmer STATUS command.  Spectrum files can
+be copied directly, transferred in JCAMP-DX format, or converted to
+Perkin-Elmer's new Data Manager format for DOS based computers.
+ 
+Lotus-like menu structure and extensive on-line context-sensitive
+help make \RD\ particularly easy to use.  The user can also
+display and examine DOS directories and files, to determine where
+best to transfer files.  DOS files can also be viewed and copied
+between disks or directories.
+ 
+The \RD\ utilities are especially useful for examination and transfer of
+data without involving the Perkin-Elmer computer which, in most
+laboratories, tends to be busy with instrument oriented tasks.
+ 
+\newpage
+ 
+\section*{{\sl \RD\ Features}}
+ 
+\begin{itemize}
+ 
+\item
+Works on any PC/MS-DOS computer, such as IBM PC/XT/AT or compatible
+clones, and PS/2 systems fitted with 5 1/4 inch drives.
+ 
+\item
+Frees your PE7000 for instrument work.
+ 
+\item
+Work with PE7000 disks wherever your DOS Personal Computer is
+located.
+ 
+\item
+Single-line menus with a second explanation line for each highlighted
+selection guide the new or infrequent user.
+ 
+\item
+Single keystroke selection of menu items for the expert.
+ 
+\item
+Context-sensitive on-line help is provided, with a help screen for 
+each menu; a manual is provided but is hardly necessary.
+ 
+\item
+Any 5 1/4 inch drive can be selected for input from the PE7000 disk.
+ 
+\item
+Any drive and/or directory can be selected for output to DOS; the
+default is the current directory.
+ 
+\item
+Displays, at all times, the input drive, output drive, and output
+directory path.
+ 
+\item
+Displays, in tree form, either the Idris or the DOS directory
+structure.
+ 
+\item
+Displays, in list form, the files in any selected DOS
+directory, including date last modified and size in bytes.
+ 
+\item
+Displays, in list form, the files in any selected Idris
+directory, including date last modified, size in bytes, and transfer
+option.
+ 
+\item
+Displays the contents of any selected file on either Idris or DOS in
+either ASCII or Binary (Hexadecimal plus ASCII) format; allows
+scrolling by line or page.
+ 
+\item
+Version \SP---View of .SP files displays the spectrum and full status
+report from the spectrum header, including instrument number, date
+and time written, and IDENT line.
+ 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\newpage
+% Following needs work, particularly expansion of your bio.
+% Put into a page in TEX form for the brochure.  My plan is to have
+% page 1 = Introducing, page 2 = some screen shots, page 3 =
+% specifications, and page 4 = the following with lower right of page
+% having address(PO Box) and phone no.
+
+
+
+\begin{center}
+{\sl About Silvermine Resources and \RD}
+\end{center}
+
+Dr. Abraham Savitzky, President and Director of Software Development,
+formed Silvermine Resources following his retirement from The
+Perkin-Elmer Corporation.  He was a pioneer in the use of computers in
+analytical chemistry.\cite{as1,as2} At Perkin-Elmer he had been
+responsible for the development of all the spectroscopy data handling
+products from the earliest time sharing software, through the
+Interdata 6/16 minicomputer, through the 3500/3600 Data Station CDS
+software, and finally the CDS III software for the 7000 series Data
+Station.  He wrote the data transfer modules for transfer of 3500/3600
+data to CDS III.  He was Perkin-Elmer's representative on the JCAMP
+committee which developed the Data Exchange
+Specifications.\cite{JCAMP} As a consultant to Perkin-Elmer he wrote
+the current CDS III JCAMP conversion routines TODX and FRDX.  \RD\ was
+written to answer his personal needs for access to 7000 files on
+Personal Computers.
+
+Coauthor Stephen Savitzky, who studied at the Artificial Intelligence
+Laboratory of Stanford University, has had extensive experience
+writing microcomputer software.  He is the author of the book, {\em
+Real-Time Microprocessor Systems},\cite{ss1} assemblers and linkers
+for Zilog's entire line of microprocessors, a real-time operating
+system kernel for the Zilog Z8000, and several debuggers and text
+editors.  He served on the IEEE standards committees for
+microprocessor assembly language\cite{IEEE-694} and object-file
+formats.\cite{IEEE-695}
+
+%%% Local version of thebibliography
+%%% so we can change the heading to a simple rule
+%%%
+\def\thebibliography#1{\medskip
+\noindent\ \hrulefill\ 
+\medskip\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy\clubpenalty4000\widowpenalty4000
+ \sfcode`\.=1000\relax}
+
+{\small
+\begin{thebibliography}{9}
+\bibitem{as1}
+	Savitzky, A., ``Data Processing in Analytical Chemistry'',
+	Analytical Chemistry (33), 25A, December 1961.
+\bibitem{as2}
+	Savitzky, A. and Golay, M.J.E., ``Smoothing and Differentiation
+	of Data by Simplified Least Squares Procedures'', Analytical
+	Chemistry (36) 1627, July 1964.
+\bibitem{JCAMP}
+	McDonald, R.S. and Wilks,P.A., ``JCAMP-DX: A Standard Form for
+	Exchange of Infrared Spectra in Computer Readable Form'', 
+	Applied Spectroscopy (42) 151, January 1988.
+\bibitem{ss1}
+	Savitzky, S., {\em Real-Time Microprocessor Systems},
+	Van Nostrand Reinhold, New York, 1985.
+\bibitem{IEEE-694}
+	ANSI/IEEE Standard 694-1985, {\em Microprocessor
+	Assembly Language}.
+\bibitem{IEEE-695}
+	IEEE Trial Use Standard 695-1985, {\em Microprocesor Universal
+	Format for Object Modules}.
+\end{thebibliography}
+}
+\medskip
+\noindent\ \hrulefill\ 
+\begin{center}
+	Silvermine Resources, Inc.	\\
+	P.O. Box 7474			\\
+	Wilton, CT 06897		\\
+	(203)762-1155			\\
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\newpage
+\begin{center}
+     LIMITED USE SOFTWARE LICENSE AGREEMENT AND LIMITED WARRANTY
+\end{center}
+
+Silvermine Resources, Inc. appreciates your selection of this product.
+We value our customers and respect your needs.  This card contains
+the limited use software license and limited warrenty.  By opening
+the sealed disk package, you accept the terms of the license and of
+the warranty.  If you do not agree with these terms, you may return
+this product, with the disk package unopened, for a full refund.
+
+LICENSE:  rd7 Version AB or rd7 Version SP:  This software and manual
+are protected by United States Copyright Law and International Treaty
+provisions.  Any unauthorized use, distribution, or modification,
+including (but not limited to) disassembly or patching of the
+program, is a violation of Federal law.  You may copy this software for
+purposes of backup, for use on working disks, or to a hard disk.
+However, you may use this product only on a single CPU and a single
+keyboard.  Timely return of the enclosed registration card is a 
+condition of this license.  
+
+ACCEPTANCE:  By opening the sealed disk package and using this
+software you agree to the above terms and will actively discourage use
+of this software other than authorized above, and will report any
+unauthorized use immediately.
+
+LIMITED WARRANTY:  Silvermine Resources, Inc. warrants the diskette
+and related printed material to be free from defects in materials and
+workmanship in their intended use and service for a period of 90 days
+from the effective day of this agreement.  If, during the 90 day period
+a defect appears, you may return the defective material for
+replacement without charge, PROVIDED you have returned your
+registration card.  Silvermine Resources, Inc. makes no other
+warranties, expressed or implied.  In particular the buyer assumes
+all risk regarding any incidental or consequential damages resulting
+from any defect in the licensed software.  
+
+\sloppypar
+EXCEPT FOR THE WARRANTY DESCRIBED IN THE ABOVE PARAGRAPH, THERE ARE
+NO WARRANTIES EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO,
+IMPLIED WARRANTIES OF MERCHANT\-ABILITY OR FITNESS FOR A PAR\-TIC\-U\-LAR
+PURPOSE, AND ALL SUCH WARRANTIES ARE EXPRESSLY AND SPECIFICALLY
+DISCLAIMED.  IN NO EVENT SHALL SILVERMINE RESOURCES, INC. BE LIABLE
+FOR ANY LOSS OF PROFIT OR ANY OTHER COMMERCIAL DAMAGE, INCLUDING BUT
+NOT LIMITED TO SPECIAL, INCIDENTAL, CONSEQUENTIAL OR OTHER DAMAGES.
+
+\bigskip
+\noindent\ \hrulefill\ 
+\bigskip
+\begin{center}
+	Silvermine Resources, Inc.	\\
+	P.O. Box 7474			\\
+	Wilton, CT 06897		\\
+	(203)762-1155			\\
+\end{center}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\newpage
+
+\begin{center}
+                               ORDER FORM
+\end{center}
+
+Terms and Conditions:
+\begin{itemize}
+\item 
+  rd7AB and rd7SP are licenced for use on a single CPU and 
+	with a single keyboard.
+
+\item
+ All orders must be prepaid in US Dollars drawn on a US bank
+	or by International Money Order.
+
+\item
+ In the continental US, orders are shipped by United Parcels,
+	prepaid. 
+
+\item 
+ In Connecticut, add $7\frac{1}{2}\%$ Sales Tax.
+\end{itemize}
+
+\begin{tabbing}
+\hspace{2.75in} \= To:  \= \+\+ \\
+	Silvermine Resources, Inc.	\\
+	P.O. Box 7474			\\
+	Wilton, CT 06897		\\
+\end{tabbing}
+\newcommand{\blankline}{\rule[-0.5pt]{3in}{0.5pt}}
+\begin{tabbing}
+SHIP TO: \= Company:  \=  \kill
+SHIP TO: \+ \\
+	Name:    \> \blankline \\
+        Title:   \> \blankline \\
+	Company: \> \blankline \\
+	Address: \> \blankline \\
+		 \> \blankline \\
+		 \> \blankline \\
+		 \> \blankline \\
+	Phone:   \> \blankline \\
+\end{tabbing}
+
+\newcommand{\leftc}{\multicolumn{1}{|c|}{}}
+ 
+\begin{tabular}{|c|l|c|c|}
+\hline
+Quantity & \multicolumn{1}{|c|}{ITEM}		& Price Each 	& Amount \\
+\hline
+\hline
+\leftc	& rd7 Version AB                   	& \$275.00	&	\\
+\hline
+\leftc	& rd7 Version SP                   	& \$450.00	&	\\
+\hline
+\leftc	& Upgrade Version AB to Version SP 	& \$250.00	&	\\
+\leftc	& \hspace{1em}Furnish Serial Numbers of	&		&	\\
+\leftc	& \hspace{1em}each Version AB upgraded.	&		&	\\
+\hline
+								\cline{4-4}
+	\multicolumn{3}{r|}{SUBTOTAL\ } 			&	\\
+								\cline{4-4}
+	\multicolumn{3}{r|}{Shipping\ }				&	\\
+								\cline{4-4}
+	\multicolumn{3}{r|}{$7\frac{1}{2}\%$ CT Sales Tax\ }	&	\\
+								\cline{4-4}
+	\multicolumn{3}{r|}{TOTAL\ }				&	\\
+								\cline{4-4}
+\end{tabular}
+
+\medskip
+\newcommand{\checkoff}{\rule[-0.5pt]{1em}{0.5pt}}
+Payment enclosed:   Check \checkoff\ International Money Order \checkoff.
+
+\medskip 
+rd7AB and rd7SP \copyright\ Copyright 1988, Silvermine Resources, Inc.
+ 
+\end{document}
+ 
+ 
+ 
+ 

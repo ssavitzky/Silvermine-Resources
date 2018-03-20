@@ -1,0 +1,31 @@
+README for RWi  Version 0.05  89 Sep 18
+
+    See RELEASE.NOT for the complete set of notes.
+
+MAJOR ADDITIONS & CHANGES:
+
+    This is a partial release; just the things I've changed since
+    the last one.  Be sure to keep your changes to DISK.C, etc. until
+    we figure out how to do things right.
+
+    With any luck, we can now read HD disks on AT's.  I tried it this
+    afternoon and it didn't work, but I had wrong stuff in the drive
+    state word.  So we'll see.  
+
+    Media type in the Drive menu will either go away or get changed
+    to something more useful.
+
+    RAW now puts 80 tracks on AT drives.
+
+    I should now be putting the disk base back correctly.
+
+
+KNOWN BUGS:
+
+    Files bigger than 64K aren't viewed correctly.  Read, and hence
+    copy, does work.  I'm in the process of fixing this; the code (in
+    Viewer.c) is presently commented out.
+
+    Doesn't write iRMX disks.
+
+

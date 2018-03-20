@@ -1,0 +1,72 @@
+INTERNAL DEVELOPMENT NOTES
+
+This file contains things to do internally (i.e. with no direct
+impact on the user interface) in RD7.  It obeys the same formatting
+conventions as release.not.
+
+
+TO DO:
+-----
+
+	The update and MvLns operations on Views ought to be made
+	generic (using class ops for next, prev, etc.) (v0.16)
+
+	The actual ViewRec structures should be initialized in RD7.C
+	adjacent to the menus that use them, rather than in view.c.  (v0.7)
+	[Maybe]
+
+	gHeader wants to take as its second argument a pseudo-printf
+	format (inapplicable items should be ignored).	(v0.7)
+
+	   %w.dX	as in printf.
+
+	       m	mode -- short
+	       M	mode -- long
+	       d	date
+	       t	time
+	       s	size
+	       k	size in K
+	       b	size in blocks
+
+
+
+DONE:
+-----
+
+(v0.16)	Views:  
+	    The different sorts of view are now subclasses.
+
+(v0.15)	Screens: (v0.7)
+	    A Screen is a view and its menus, with DYNAMIC links to
+	    left and right neighbors:
+
+	    	Screen l, r;
+	    	View   v;
+		Menu   m;
+		String name;
+
+	    This way, Views and Menus can be shared between screens.
+
+(v0.10) IdrisDir a subclass of Dir
+
+(v0.9)	Dir creation calls a callback routine rather than taking a
+	View as a parameter.
+
+(v0.8)	[REJECT] The stream operations want to be methods of Text (v0.7+)
+
+(v0.8)	Need COOPS classes: (v0.7)
+		Text		basically a *stream*
+		Buffer		A single block of characters
+		BufferList	several blocks of characters
+		StringList	an array of variable-length strings
+
+(v0.8)	The initial screen and the "READING" blank-out display should
+	share their own view, with the Centered bit on. (v0.7)
+
+(v0.8)	View needs 
+		an "is_visible" flag. 		(v0.7)
+		x, y 				(v0.7+)
+		an Initialize method		(v0.7+)
+
+(v0.8)	Each view needs its OWN box window	(v0.7+)
+

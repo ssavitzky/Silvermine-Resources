@@ -1,0 +1,49 @@
+things to do:
+
+Subclasses of View:
+			(shows)		(moves)
+	DirView		 name		 pred/succ
+	FileView	 header		 next/prev
+	TextView	 textP		 +/- n, pred/succ
+	MenuView	 name		 next/prev
+
+	One wonders whether textP etc is really right.  Probably.
+	Actually, View really needs a separate Formatter.  Nuts.
+
+	Eventually will have to split the functions of view into:
+
+		View	the window/event interface
+		Format	maps tree -> presentation
+		Walker	maps tree + motion -> data
+
+	The question is when to do this.
+
+Subclasses of Tree:
+
+	MenuTree	(menu item)
+
+Symbols:
+
+	DEFSYM(name, "string")
+
+	    normally:	
+	    	global char name[];
+
+	    in Syms module:	
+	    	global char name[] = "string";
+
+	    for building hash table
+		{..... name, ....}
+
+	Can build the Syms module include file with:
+
+	    grep DEFSYM *.h | sort -u > syms.tbl
+
+
+	The only problem with this scheme is that you can't use them
+	in switch statements.  Doing better would require building a
+	list and including it.  This would have the additional
+	problem of making EVERYTHING depend on it, and at the same
+	time depending on everything!  Bletch.  Leave it.
+
+

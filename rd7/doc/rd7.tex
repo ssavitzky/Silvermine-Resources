@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% rd7.tex -- Macro file for rd7 documents
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%
+% Useful Macros
+%
+\newcommand{\nl}{\mbox{}\\\mbox{}}		% for newline after item tag
+\newcommand{\code}[1]{\mbox{\tt #1}}
+\newcommand{\param}[1]{\mbox{\it #1}}
+\newcommand{\key}[1]{{\sc #1}}
+\newcommand{\cmd}[2]{`#1' (#2)}
+\newcommand{\ignore}[1]{}
+
+\newcommand{\Fref}[1]{Figure \ref{#1}}
+
+\newenvironment{dcode}{\begin{verse} \tt }{\end{verse}}
+
+\hyphenation{back-space}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Logos and Abbreviations
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This is the basic large (40/80pt) line-drawing logo
+%
+\newcommand{\logo}{{\thicklines
+ \begin{picture}(92,40)(-2,0)
+%				% r
+ \put(0,0){\line(1,2){10}}
+ \put(10,20){\line(1,0){10}}
+%
+ \put(-2,0){\line(1,2){11}}
+ \put(9,22){\line(1,0){13}}
+%				% d
+ \put(20,0){\line(1,0){20}}
+ \put(20,0){\line(1,2){10}}
+ \put(30,20){\line(1,0){20}}
+ \put(40,0){\line(1,2){20}}
+%
+ \put(23,2){\line(1,0){17}}
+ \put(23,2){\line(1,2){8}}
+ \put(31,18){\line(1,0){17}}
+ \put(42,0){\line(1,2){20}}
+%				% 7
+ \put(70,38){\line(1,0){19}}
+ \put(70,0){\line(1,2){19}}
+%
+ \put(72,40){\line(1,0){20}}
+ \put(72,0){\line(1,2){20}}
+ \end{picture}
+}}
+
+% This is the basic 20-pt line-drawing logo
+%
+\newcommand{\llogo}{{\thicklines
+ \begin{picture}(47,20)
+%				% r
+ \put(0,0){\line(1,2){5}}
+ \put(5,10){\line(1,0){5}}
+%				% d
+ \put(12,0){\line(1,0){10}}
+ \put(12,0){\line(1,2){5}}
+ \put(17,10){\line(1,0){10}}
+ \put(22,0){\line(1,2){10}}
+%				% 7
+ \put(37,20){\line(1,0){10}}
+ \put(37,0){\line(1,2){10}}
+ \end{picture}
+}}
+
+% This is a logo 10 pts high.  It is kerned slightly.  
+% Note the kludgery required because LaTeX won't draw short diagonal
+% lines.  Bezier actually scales correctly under magnification
+% (though some fonts don't exist at some mags)
+%
+\newsavebox{\sslant}
+\savebox{\sslant}(2.5,5){\bezier{20}(0,0)(1,2)(2.5,5)}
+\newsavebox{\lslant}
+\savebox{\lslant}(5,10){\bezier{40}(0,0)(1,2)(5,10)}
+\newcommand{\slogo}{{
+ \begin{picture}(20,10)
+%				% r
+ \put(0,0){\usebox\sslant}
+ \put(2.5,5){\line(1,0){3}}
+%				% d
+ \put(6,0){\line(1,0){5}}
+ \put(6,0){\usebox\sslant}
+ \put(8.5,5){\line(1,0){5}}
+ \put(11,0){\usebox\lslant}
+%				% 7
+ \put(18.5,10){\line(1,0){5}}
+ \put(18.5,0){\usebox\lslant}
+ \end{picture}
+}}
+
+\newcommand{\seven}{{\setlength{\unitlength}{1pt}\begin{picture}(5,10)
+ \put(0,0){\line(1,2){5}}
+ \put(0,10){\line(1,0){5}}
+\end{picture}}}
+
+%
+% These are the ``standard'' versions of rd7, ab, and sp
+%
+%\newcommand{\RD}{\mbox{\Large\bf\sf rd\hspace{2pt}\seven}}
+\newcommand{\RD}{\slogo}
+\newcommand{\AB}{\mbox{\large\bf\sl ab}}
+\newcommand{\SP}{\mbox{\large\bf\sl sp}} 
